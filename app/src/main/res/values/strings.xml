@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">superName</string>
+    <string name="password_instruction">Your password must consist of this and that (this requirement awaits the edition)</string>
+</resources>

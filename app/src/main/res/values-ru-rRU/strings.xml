@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Лучшее приложение</string>
+    <string name="password_instruction">Ваш пароль должен иметь не менее 8 символов и содержать хотя бы одну цифру, хотя бы одну строчную и хотя бы одну заглавную букву (буквы из латинмкого алфовита).</string>
+</resources>
