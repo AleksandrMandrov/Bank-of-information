@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+//Проверка
 
 public class RegisterActivity extends AppCompatActivity {
 
