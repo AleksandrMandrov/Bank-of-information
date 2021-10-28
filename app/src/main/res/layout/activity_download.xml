@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Download">
+
+
+    <TextView
+        android:id="@+id/textview_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="96dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="49dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="181dp"
+        android:text="Создание решения"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.021" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="28dp"
+        android:text="Create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="411dp"
+        android:text="Тип работы"
+        app:layout_constraintBottom_toTopOf="@+id/textView19"
+        app:layout_constraintEnd_toStartOf="@+id/spinner2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="203dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="370dp"
+        android:entries="@array/KindOfWork"
+        app:layout_constraintBottom_toTopOf="@+id/spinner9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="51dp"
+        android:text="Дисциплина"
+        app:layout_constraintEnd_toStartOf="@+id/spinner3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="205dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="528dp"
+        android:entries="@array/TheScience"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintVertical_bias="0.826" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="115dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="446dp"
+        android:text="Автор/Преподаватель"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinner4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="189dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="448dp"
+        android:entries="@array/Author"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="114dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="405dp"
+        android:text="№ издания"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinner5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="223dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="405dp"
+        android:entries="@array/Edition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="91dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="367dp"
+        android:text="Раздел"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinner6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Spinner
+        android:id="@+id/spinner6"
+        android:layout_width="232dp"
+        android:layout_height="31dp"
+        android:layout_marginBottom="362dp"
+        android:entries="@array/ChapterR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="59dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="318dp"
+        android:text="Глава"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinner7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.992" />
+
+    <Spinner
+        android:id="@+id/spinner7"
+        android:layout_width="227dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="309dp"
+        android:entries="@array/CharapterG"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintVertical_bias="0.961" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="74dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="273dp"
+        android:text="Параграф"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinner8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.984" />
+
+    <Spinner
+        android:id="@+id/spinner8"
+        android:layout_width="222dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="267dp"
+        android:entries="@array/Paragraph"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintVertical_bias="0.981" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="61dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="229dp"
+        android:text="Тема"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinner9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Spinner
+        android:id="@+id/spinner9"
+        android:layout_width="211dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="18dp"
+        android:entries="@array/Theme"
+        app:layout_constraintBottom_toTopOf="@+id/spinner10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView18"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="67dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="182dp"
+        android:text="№  задания"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinner10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <Spinner
+        android:id="@+id/spinner10"
+        android:layout_width="228dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="181dp"
+        android:entries="@array/JobNumber"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/spinner9" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="184dp"
+        android:layout_marginBottom="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Комментарий"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,83 @@
 <resources>
     <string name="app_name">superName</string>
     <string name="password_instruction">Your password must consist of this and that (this requirement awaits the edition)</string>
+    <string-array name="creatingSolutions">
+        <item>Тип работы</item>
+        <item>Наука</item>
+        <item>Дисциплина</item>
+        <item>Автор(Фамилия И. О.)</item>
+        <item>№ издания</item>
+        <item>Раздел</item>
+        <item>Глава</item>
+        <item>Параграф</item>
+        <item>Тема</item>
+        <item>№ издания</item>
+    </string-array>
+    <string-array name="KindOfWork">
+        <item>Контрольная работа</item>
+        <item>Тест</item>
+        <item>Домашняя работа</item>
+        <item>Доклад</item>
+        <item>Лекции</item>
+        <item>Семинары</item>
+        <item>Учебная литература</item>
+        <item>Сессия</item>
+        <item>Лабораторные работы</item>
+    </string-array>
+    <string-array name="TheScience">
+        <item>Физика</item>
+        <item>Математический анализ</item>
+        <item>Аналитическая геометрия</item>
+        <item>Линейная алгебра</item>
+        <item>Дискретная математика</item>
+        <item>Основы гуманитарного знания</item>
+        <item>Информатика</item>
+        <item>ЭВМ</item>
+        <item>Риторика</item>
+        <item>Химия</item>
+        <item>Английский язык</item>
+        <item>Китайский язык</item>
+    </string-array>
+    <string-array name="Author">
+        <item>Демидович</item>
+        <item>Савельев</item>
+        <item>Клетник</item>
+        <item>Иродов</item>
+        <item>...</item>
+        <item>Окороков</item>
+        <item>Теляковский</item>
+        <item>Камынин</item>
+        <item>Шмалий</item>
+    </string-array>
+    <string-array name="Edition">
+        <item>Нет</item>
+        <item>1-е</item>
+        <item>2-е</item>
+        <item>3-е</item>
+    </string-array>
+    <string-array name="ChapterR">
+        <item>Нет</item>
+        <item>1-ый</item>
+        <item>...</item>
+    </string-array>
+    <string-array name="CharapterG">
+        <item>Нет</item>
+        <item>1-ая</item>
+        <item>...</item>
+    </string-array>
+    <string-array name="Paragraph">
+        <item>Нет</item>
+        <item>1-ый</item>
+        <item>...</item>
+    </string-array>
+    <string-array name="Theme">
+        <item>Нет</item>
+        <item>1-ая</item>
+        <item>...</item>
+    </string-array>
+    <string-array name="JobNumber">
+        <item>Нет</item>
+        <item>1</item>
+        <item>...</item>
+    </string-array>
 </resources>
