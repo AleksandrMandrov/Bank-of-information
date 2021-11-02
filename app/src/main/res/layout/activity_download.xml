@@ -28,15 +28,6 @@
 
     </com.google.android.material.chip.ChipGroup>
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="49dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
@@ -46,7 +37,7 @@
         android:text="Create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPostalAddress7" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
 
     <TextView
         android:id="@+id/textView2"
@@ -58,7 +49,6 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,10 +71,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="141dp"
+        android:layout_marginEnd="140dp"
         android:text="Дисциплина"
-        app:layout_constraintEnd_toStartOf="@+id/spinner2"
-        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintEnd_toStartOf="@+id/autoCompleteTextView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -94,21 +83,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="77dp"
+        android:layout_marginEnd="74dp"
         android:text="Автор/Преподаватель"
-        app:layout_constraintEnd_toStartOf="@+id/spinner3"
+        app:layout_constraintEnd_toStartOf="@+id/autoCompleteTextView3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="0dp"
-        android:layout_height="18dp"
+        android:layout_height="20dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="150dp"
-        android:text="№ издания"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPostalAddress"
+        android:layout_marginEnd="86dp"
+        android:text="Тема"
+        app:layout_constraintEnd_toStartOf="@+id/autoCompleteTextView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -118,9 +107,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="190dp"
+        android:layout_marginEnd="175dp"
         android:text="Раздел"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPostalAddress2"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -130,9 +119,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="200dp"
+        android:layout_marginEnd="184dp"
         android:text="Глава"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPostalAddress4"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -142,9 +131,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="173dp"
+        android:layout_marginEnd="158dp"
         android:text="Параграф"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPostalAddress5"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -154,9 +143,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="204dp"
-        android:text="Тема"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPostalAddress6"
+        android:layout_marginEnd="150dp"
+        android:text="№ издания"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -164,12 +153,11 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="167dp"
+        android:layout_marginEnd="151dp"
         android:text="№ задания"
-        app:layout_constraintEnd_toEndOf="@+id/textView10"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPostalAddress7"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName5"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -186,128 +174,6 @@
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textview_second" />
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="129dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="505dp"
-        android:entries="@array/TheScience"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="457dp"
-        android:entries="@array/Author"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPostalAddress"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="213dp"
-        android:layout_marginEnd="70sp"
-        android:layout_marginBottom="404dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPostalAddress2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="262dp"
-        android:layout_marginEnd="70sp"
-        android:layout_marginBottom="348dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPostalAddress4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="317dp"
-        android:layout_marginEnd="70sp"
-        android:layout_marginBottom="299dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPostalAddress5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="367dp"
-        android:layout_marginEnd="70sp"
-        android:layout_marginBottom="247dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPostalAddress6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="418dp"
-        android:layout_marginEnd="70sp"
-        android:layout_marginBottom="201dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPostalAddress7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="466dp"
-        android:layout_marginEnd="70sp"
-        android:layout_marginBottom="149dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/editTextTextPostalAddress8"
         android:layout_width="220dp"
@@ -321,6 +187,134 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.848" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="498dp"
+        android:completionHint="Введите дисциплину"
+        android:completionThreshold="0"
+        android:text=""
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="158dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="448dp"
+        android:completionHint="Введите автора"
+        android:completionThreshold="0"
+        android:text=""
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="398dp"
+        android:completionHint="Введите тему"
+        android:completionThreshold="0"
+        android:text=""
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="257dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="352dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Нет"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="303dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="306dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Нет"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="349dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="253dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Нет"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="402dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="199dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Нет"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="457dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="151dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Нет"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

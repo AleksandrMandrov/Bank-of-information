@@ -11,7 +11,10 @@
         android:theme="@style/Theme.MyApplication">
         <activity
             android:name=".Download"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Создание решений"/>
+
+
         <activity
             android:name=".LastSolutions"
             android:exported="true"
@@ -33,5 +36,6 @@
             </intent-filter>
         </activity>
     </application>
+
 
 </manifest>
