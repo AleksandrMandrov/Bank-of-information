@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class Download extends AppCompatActivity {
+    @Override
+    public void setTitle(int titleId) {
+        super.setTitle(titleId);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
