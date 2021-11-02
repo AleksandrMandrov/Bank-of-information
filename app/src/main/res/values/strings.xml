@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">superName</string>
+    <string name="app_name">Bank of Information</string>
     <string name="password_instruction">Your password must consist of this and that (this requirement awaits the edition)</string>
     <string-array name="creatingSolutions">
         <item>Тип работы</item>

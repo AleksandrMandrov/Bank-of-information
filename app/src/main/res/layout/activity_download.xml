@@ -176,7 +176,7 @@
 
     <EditText
         android:id="@+id/editTextTextPostalAddress8"
-        android:layout_width="220dp"
+        android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
@@ -185,6 +185,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.848" />
 
@@ -315,6 +316,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="23dp"
+        android:text="Прикрепить"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPostalAddress8"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPostalAddress8"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:text="Ссылка"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
