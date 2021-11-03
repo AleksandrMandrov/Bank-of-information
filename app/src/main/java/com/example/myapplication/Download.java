@@ -19,6 +19,7 @@ public class Download extends AppCompatActivity {
     TextView textFile;
 
     private static final int PICKFILE_RESULT_CODE = 1;
+
     @Override
     public void setTitle(int titleId) {
         super.setTitle(titleId);
@@ -58,8 +59,7 @@ public class Download extends AppCompatActivity {
 
 
 
-
-        setContentView(R.layout.activity_download);
+        /*прикрепление пдф*/
 
         Button buttonPick = (Button)findViewById(R.id.button2);
         textFile = (TextView)findViewById(R.id.textView12);
