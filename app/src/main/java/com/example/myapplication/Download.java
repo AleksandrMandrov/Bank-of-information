@@ -58,7 +58,6 @@ public class Download extends AppCompatActivity {
 
 
 
-
         /*прикрепление пдф*/
 
         Button buttonPick = (Button)findViewById(R.id.button2);
