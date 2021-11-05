@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         String error = "";
         boolean errorFlag = true;
 
+        errorMesage.setVisibility(View.GONE);
+
         if (loginEmailValue.equals("")) {
             error += "\n- вы не ввели имя пользователя";
             errorFlag = false;
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
             errorFlag = false;
 
-            Cursor cursor = db.query(DatabaseHelper.TABLE, null, null, null, null, null, null);
+            Cursor cursor = db.query(DatabaseHelper.TABLE_USERS, null, null, null, null, null, null);
 
             if (cursor.moveToFirst()) {
                 int idName = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME);
@@ -96,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
                 errorFlag = false;
 
-                cursor = db.query(DatabaseHelper.TABLE, null, null, null, null, null, null);
+                cursor = db.query(DatabaseHelper.TABLE_USERS, null, null, null, null, null, null);
 
                 if (cursor.moveToFirst()) {
                     int idName = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME);
@@ -130,7 +132,15 @@ public class MainActivity extends AppCompatActivity {
             errorMesage.setText(error);
             errorMesage.setPaddingRelative(20, 20, 20, 20);
             imageHello.setImageResource(R.drawable.graymag);
-
+            errorMesage.setVisibility(View.VISIBLE);
         }
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // Закрываем подключение
+        db.close();
+    }
+
 }

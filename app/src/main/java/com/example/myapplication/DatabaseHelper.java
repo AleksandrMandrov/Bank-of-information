@@ -16,12 +16,22 @@ class DatabaseHelper extends SQLiteOpenHelper {
     private static String DB_PATH; // полный путь к базе данных
     private static final String DB_NAME = "informationBase.db";
     private static final int SCHEMA = 1; // версия базы данных
-    static final String TABLE = "users"; // название таблицы в бд
-    // названия столбцов
+    static final String TABLE_USERS = "users"; // название таблицы с данными о пользователе в бд
+    static final String TABLE_DISCIPLINES = "disciplines"; // название таблицы с информацией про научные дисциплины в бд
+    static final String TABLE_AUTHORS = "authors"; // название таблицы с именами авторов преподователей в бд
+    static final String TABLE_THEMES = "themes"; // название таблицы с темой "решения" в бд
+    // универсальный столбец
     static final String COLUMN_ID = "_id";
+    // названия столбцов TABLE_USERS
     static final String COLUMN_NAME = "name";
     static final String COLUMN_EMAIL = "email";
     static final String COLUMN_PASSWORD = "password";
+    // названия столбцов TABLE_DISCIPLINES
+    static final String COLUMN_NAME_DISCIPLINE = "nameDiscipline";
+    // названия столбцов TABLE_AUTHORS
+    static final String COLUMN_NAME_AUTHOR = "nameAuthor";
+    // названия столбцов TABLE_THEMES
+    static final String COLUMN_NAME_THEME = "theme";
     private Context myContext;
 
     DatabaseHelper(Context context) {

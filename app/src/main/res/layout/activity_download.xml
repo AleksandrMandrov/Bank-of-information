@@ -1,342 +1,382 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     tools:context=".Download">
 
-
-    <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="57dp"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="96dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </com.google.android.material.chip.ChipGroup>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="28dp"
-        android:text="Create"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="199dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginBottom="27dp"
-        android:text="Создание решений"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginBottom="631dp"
-        android:text="Тип работы"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:layout_margin="10dp">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="140dp"
-        android:text="Дисциплина"
-        app:layout_constraintEnd_toStartOf="@+id/autoCompleteTextView2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        <TextView
+            android:id="@+id/helpParagraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Номер параграфа при наличии"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextParagraph"
+            app:layout_constraintTop_toBottomOf="@+id/editTextParagraph" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="74dp"
-        android:text="Автор/Преподаватель"
-        app:layout_constraintEnd_toStartOf="@+id/autoCompleteTextView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        <TextView
+            android:id="@+id/helpNumberOfPublication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Номер издания при наличии"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextNumberOfPublication"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberOfPublication" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="86dp"
-        android:text="Тема"
-        app:layout_constraintEnd_toStartOf="@+id/autoCompleteTextView4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        <TextView
+            android:id="@+id/helpNumberOfVariant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Поле обязательно для заполнения"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextNumberOfVariant"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberOfVariant" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="175dp"
-        android:text="Раздел"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        <TextView
+            android:id="@+id/helpNumberOfTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Поле обязательно для заполнения"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextNumberOfTask"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberOfTask" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="184dp"
-        android:text="Глава"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        <TextView
+            android:id="@+id/helpChapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Номер главы при наличии"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextChapter"
+            app:layout_constraintTop_toBottomOf="@+id/editTextChapter" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="158dp"
-        android:text="Параграф"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        <TextView
+            android:id="@+id/descriptionTypeOfWork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Тип работы"
+            app:layout_constraintBottom_toBottomOf="@+id/typeOfWork"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/typeOfWork" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="150dp"
-        android:text="№ издания"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        <Spinner
+            android:id="@+id/typeOfWork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:entries="@array/KindOfWork"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteDiscipline"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="151dp"
-        android:text="№ задания"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName5"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        <TextView
+            android:id="@+id/descriptionDiscipline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Дисциплина"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteDiscipline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteDiscipline" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="633dp"
-        android:entries="@array/KindOfWork"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textview_second" />
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteDiscipline"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:completionThreshold="0"
+            android:text=""
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/typeOfWork" />
 
-    <EditText
-        android:id="@+id/editTextTextPostalAddress8"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Комментарий"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.848" />
+        <TextView
+            android:id="@+id/descriptionAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Автор/Преподаватель"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteAuthor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteAuthor" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="498dp"
-        android:completionHint="Введите дисциплину"
-        android:completionThreshold="0"
-        android:text=""
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent" />
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteAuthor"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:completionThreshold="0"
+            android:text=""
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteDiscipline"
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteDiscipline" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="158dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="448dp"
-        android:completionHint="Введите автора"
-        android:completionThreshold="0"
-        android:text=""
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/descriptionTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Тема"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="208dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="398dp"
-        android:completionHint="Введите тему"
-        android:completionThreshold="0"
-        android:text=""
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="parent" />
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTheme"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:completionThreshold="0"
+            android:text=""
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteAuthor" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="257dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="352dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/descriptionSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Раздел"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTextSection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextTextSection" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="303dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="306dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editTextTextSection"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteTheme" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="349dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="253dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/descriptionChapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Глава"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextChapter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextChapter" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="402dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="199dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editTextChapter"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/helpSection" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="457dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="151dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Нет"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/descriptionParagraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Параграф"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextParagraph"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextParagraph" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="23dp"
-        android:text="Прикрепить"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPostalAddress8"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPostalAddress8"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/editTextParagraph"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/helpChapter" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="16dp"
-        android:text="Ссылка"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        <TextView
+            android:id="@+id/descriptionNumberOfPublication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="№ издания"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextNumberOfPublication"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextNumberOfPublication" />
+
+        <EditText
+            android:id="@+id/editTextNumberOfPublication"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/helpParagraph" />
+
+        <TextView
+            android:id="@+id/descriptionNumberOfVariant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="№ варианта"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextNumberOfVariant"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextNumberOfVariant" />
+
+        <EditText
+            android:id="@+id/editTextNumberOfVariant"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/helpNumberOfPublication" />
+
+        <TextView
+            android:id="@+id/descriptionNumberOfTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="№ задания"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextNumberOfTask"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextNumberOfTask" />
+
+        <EditText
+            android:id="@+id/editTextNumberOfTask"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/helpNumberOfVariant" />
+
+        <Button
+            android:id="@+id/btnFileAttaching"
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Прикрепить"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/editTextDecision"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionNumberOfTask" />
+
+        <EditText
+            android:id="@+id/editTextDecision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:ems="10"
+            android:hint="Ваше решение"
+            android:inputType="textPostalAddress"
+            android:padding="15dp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnFileAttaching" />
+
+        <TextView
+            android:id="@+id/textViewLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="32dp"
+            android:text="Ссылка"
+            app:layout_constraintBottom_toBottomOf="@+id/btnFileAttaching"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.226"
+            app:layout_constraintStart_toEndOf="@+id/btnFileAttaching"
+            app:layout_constraintTop_toTopOf="@+id/btnFileAttaching"
+            app:layout_constraintVertical_bias="0.488" />
+
+        <Button
+            android:id="@+id/btnCreatingSolution"
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:text="Создать"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/errorMesage" />
+
+        <TextView
+            android:id="@+id/helpSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Номер раздела при наличии"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextSection"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextSection" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/errorMesage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#A9FFCDD2"
+            android:textColor="?attr/colorError"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDecision" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
