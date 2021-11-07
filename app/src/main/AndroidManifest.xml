@@ -11,15 +11,18 @@
         android:theme="@style/Theme.MyApplication">
         <activity
             android:name=".InformationAboutTheSolution"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Download"
             android:exported="true"
-            android:label="Создание решений" />
+            android:label="Создание решений"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".LastSolutions"
             android:exported="true"
-            android:label="Последние решения" />
+            android:label="Последние решения"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RegisterActivity"
             android:exported="true"
