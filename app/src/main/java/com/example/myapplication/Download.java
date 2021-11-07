@@ -27,9 +27,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 
 
+
 public class Download extends AppCompatActivity {
 
-    TextView errorMesage;
+    TextView errorMessage;
 
     AutoCompleteTextView autoCompleteDiscipline;
     AutoCompleteTextView autoCompleteAuthor;
@@ -97,7 +98,7 @@ public class Download extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download);
 
-        errorMesage = (TextView) findViewById(R.id.errorMesage);
+        errorMessage = (TextView) findViewById(R.id.errorMessage);
 
         autoCompleteDiscipline = (AutoCompleteTextView) findViewById(R.id.autoCompleteDiscipline);
         autoCompleteAuthor = (AutoCompleteTextView) findViewById(R.id.autoCompleteAuthor);
@@ -165,18 +166,18 @@ public class Download extends AppCompatActivity {
         AutoCompleteTextView autoCompleteDiscipline = findViewById(R.id.autoCompleteDiscipline);
 
         Cursor cursor = db.query(DatabaseHelper.TABLE_DISCIPLINES, null, null, null, null, null, null);
-        ArrayList<String> disciline = new ArrayList<String>();
+        ArrayList<String> discipline = new ArrayList<String>();
 
         if (cursor.moveToFirst()) {
-            int textDisciline = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_DISCIPLINE);
+            int textDiscipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_DISCIPLINE);
 
             do {
-                disciline.add(cursor.getString(textDisciline));
+                discipline.add(cursor.getString(textDiscipline));
             } while (cursor.moveToNext());
         }
 
         ArrayAdapter<String> userAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_dropdown_item_1line, disciline);
+                this, android.R.layout.simple_dropdown_item_1line, discipline);
 
         autoCompleteDiscipline.setAdapter(userAdapter);
         cursor.close();
@@ -430,7 +431,7 @@ public class Download extends AppCompatActivity {
 
                 if (item.equals("Контрольная работа") || item.equals("Тест") || item.equals("Сессия") || item.equals("Лабораторные работы")) {
 
-                    errorMesage.setVisibility(View.GONE);
+                    errorMessage.setVisibility(View.GONE);
 
                     editTextDecision.setHint("Текст вашего решения / Описание решения / комментарий к решению");
                     descriptionSection.setVisibility(View.GONE);
@@ -750,9 +751,9 @@ public class Download extends AppCompatActivity {
 
                             if (!errorFlag) {
                                 error = "Что-то пошло не по плану:" + error;
-                                errorMesage.setText(error);
-                                errorMesage.setPaddingRelative(20, 20,20,20);
-                                errorMesage.setVisibility(View.VISIBLE);
+                                errorMessage.setText(error);
+                                errorMessage.setPaddingRelative(20, 20,20,20);
+                                errorMessage.setVisibility(View.VISIBLE);
                             }
 
                         }
@@ -762,7 +763,7 @@ public class Download extends AppCompatActivity {
 
                 if(item.equals("Домашняя работа")) {
 
-                    errorMesage.setVisibility(View.GONE);
+                    errorMessage.setVisibility(View.GONE);
 
                     editTextDecision.setHint("Текст вашего решения / Описание решения / комментарий к решению");
                     descriptionNumberOfPublication.setVisibility(View.GONE);
@@ -1067,9 +1068,9 @@ public class Download extends AppCompatActivity {
 
                             if (!errorFlag) {
                                 error = "Что-то пошло не по плану:" + error;
-                                errorMesage.setText(error);
-                                errorMesage.setPaddingRelative(20, 20,20,20);
-                                errorMesage.setVisibility(View.VISIBLE);
+                                errorMessage.setText(error);
+                                errorMessage.setPaddingRelative(20, 20,20,20);
+                                errorMessage.setVisibility(View.VISIBLE);
                             }
 
                         }
@@ -1079,7 +1080,7 @@ public class Download extends AppCompatActivity {
 
                 if (item.equals("Доклад")) {
 
-                    errorMesage.setVisibility(View.GONE);
+                    errorMessage.setVisibility(View.GONE);
 
                     editTextDecision.setHint("Текст вашего доклада / Описание доклада / комментарий к докладу");
 
@@ -1332,9 +1333,9 @@ public class Download extends AppCompatActivity {
 
                             if (!errorFlag) {
                                 error = "Что-то пошло не по плану:" + error;
-                                errorMesage.setText(error);
-                                errorMesage.setPaddingRelative(20, 20,20,20);
-                                errorMesage.setVisibility(View.VISIBLE);
+                                errorMessage.setText(error);
+                                errorMessage.setPaddingRelative(20, 20,20,20);
+                                errorMessage.setVisibility(View.VISIBLE);
                             }
 
                         }
@@ -1343,7 +1344,7 @@ public class Download extends AppCompatActivity {
 
                 if (item.equals("Лекции")) {
 
-                    errorMesage.setVisibility(View.GONE);
+                    errorMessage.setVisibility(View.GONE);
 
                     editTextDecision.setHint("Текст лекции / Описание лекции / комментарий к тексту лекции");
                     descriptionSection.setVisibility(View.VISIBLE);
@@ -1639,9 +1640,9 @@ public class Download extends AppCompatActivity {
 
                             if (!errorFlag) {
                                 error = "Что-то пошло не по плану:" + error;
-                                errorMesage.setText(error);
-                                errorMesage.setPaddingRelative(20, 20,20,20);
-                                errorMesage.setVisibility(View.VISIBLE);
+                                errorMessage.setText(error);
+                                errorMessage.setPaddingRelative(20, 20,20,20);
+                                errorMessage.setVisibility(View.VISIBLE);
                             }
 
                         }
@@ -1651,7 +1652,7 @@ public class Download extends AppCompatActivity {
 
                 if (item.equals("Семинары")) {
 
-                    errorMesage.setVisibility(View.GONE);
+                    errorMessage.setVisibility(View.GONE);
 
                     editTextDecision.setHint("Задачи с семинара и их решение / текст аудиторной работа");
                     descriptionSection.setVisibility(View.VISIBLE);
@@ -1973,9 +1974,9 @@ public class Download extends AppCompatActivity {
 
                             if (!errorFlag) {
                                 error = "Что-то пошло не по плану:" + error;
-                                errorMesage.setText(error);
-                                errorMesage.setPaddingRelative(20, 20,20,20);
-                                errorMesage.setVisibility(View.VISIBLE);
+                                errorMessage.setText(error);
+                                errorMessage.setPaddingRelative(20, 20,20,20);
+                                errorMessage.setVisibility(View.VISIBLE);
                             }
 
                         }
@@ -1985,7 +1986,7 @@ public class Download extends AppCompatActivity {
 
                 if (item.equals("Учебная литература")) {
 
-                    errorMesage.setVisibility(View.GONE);
+                    errorMessage.setVisibility(View.GONE);
 
                     editTextDecision.setHint("Описание или комментарий");
 
@@ -2293,9 +2294,9 @@ public class Download extends AppCompatActivity {
 
                             if (!errorFlag) {
                                 error = "Что-то пошло не по плану:" + error;
-                                errorMesage.setText(error);
-                                errorMesage.setPaddingRelative(20, 20,20,20);
-                                errorMesage.setVisibility(View.VISIBLE);
+                                errorMessage.setText(error);
+                                errorMessage.setPaddingRelative(20, 20,20,20);
+                                errorMessage.setVisibility(View.VISIBLE);
                             }
 
                         }

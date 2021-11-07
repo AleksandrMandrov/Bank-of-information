@@ -442,7 +442,7 @@
             android:text="Создать"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/errorMesage" />
+            app:layout_constraintTop_toBottomOf="@+id/errorMessage" />
 
         <TextView
             android:id="@+id/helpSection"
@@ -457,7 +457,7 @@
 
 
         <TextView
-            android:id="@+id/errorMesage"
+            android:id="@+id/errorMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
