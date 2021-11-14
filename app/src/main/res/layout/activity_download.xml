@@ -145,9 +145,53 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme" />
 
+        <TextView
+            android:id="@+id/descriptionTheme3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Тема 3"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme3" />
+
+        <TextView
+            android:id="@+id/descriptionTheme4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Тема 4"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme4" />
+
+        <TextView
+            android:id="@+id/descriptionTheme5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Тема 5"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme5" />
+
+        <TextView
+            android:id="@+id/descriptionTheme2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Тема 2"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme2" />
+
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTheme"
-            android:layout_width="200dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:completionThreshold="0"
@@ -155,6 +199,50 @@
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/autoCompleteAuthor"
             app:layout_constraintTop_toBottomOf="@+id/autoCompleteAuthor" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTheme2"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:completionThreshold="0"
+            android:text=""
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteTheme" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTheme3"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:completionThreshold="0"
+            android:text=""
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteTheme2" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTheme4"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:completionThreshold="0"
+            android:text=""
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteTheme3" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTheme5"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:completionThreshold="0"
+            android:text=""
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteTheme4" />
 
         <TextView
             android:id="@+id/descriptionSection"
@@ -178,7 +266,7 @@
             android:paddingEnd="6dp"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
-            app:layout_constraintTop_toBottomOf="@+id/autoCompleteTheme" />
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteTheme5" />
 
         <TextView
             android:id="@+id/descriptionChapter"
@@ -350,7 +438,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
             android:text="Создать"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/errorMesage" />
 
@@ -376,6 +466,88 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextDecision" />
+
+        <ImageButton
+            android:id="@+id/newTheme"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/plustheme"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme"
+            app:layout_constraintStart_toEndOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme"
+            app:srcCompat="@drawable/plustheme" />
+
+        <ImageButton
+            android:id="@+id/newTheme2"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme2"
+            app:layout_constraintStart_toEndOf="@+id/autoCompleteTheme2"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme2"
+            app:srcCompat="@drawable/plustheme" />
+
+        <ImageButton
+            android:id="@+id/newTheme3"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme3"
+            app:layout_constraintStart_toEndOf="@+id/autoCompleteTheme3"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme3"
+            app:srcCompat="@drawable/plustheme" />
+
+        <ImageButton
+            android:id="@+id/newTheme4"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme4"
+            app:layout_constraintStart_toEndOf="@+id/autoCompleteTheme4"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme4"
+            app:srcCompat="@drawable/plustheme" />
+
+        <ImageButton
+            android:id="@+id/deleteTheme2"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme2"
+            app:layout_constraintStart_toEndOf="@+id/newTheme2"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme2"
+            app:srcCompat="@drawable/xtheme" />
+
+        <ImageButton
+            android:id="@+id/deleteTheme3"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme3"
+            app:layout_constraintStart_toEndOf="@+id/newTheme3"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme3"
+            app:srcCompat="@drawable/xtheme" />
+
+        <ImageButton
+            android:id="@+id/deleteTheme4"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme4"
+            app:layout_constraintStart_toEndOf="@+id/newTheme4"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme4"
+            app:srcCompat="@drawable/xtheme"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/deleteTheme5"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme5"
+            app:layout_constraintStart_toEndOf="@+id/autoCompleteTheme5"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme5"
+            app:srcCompat="@drawable/xtheme" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

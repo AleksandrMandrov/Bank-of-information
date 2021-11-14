@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.SimpleCursorAdapter;
 
 import java.util.ArrayList;
@@ -33,7 +34,25 @@ public class Download extends AppCompatActivity {
     AutoCompleteTextView autoCompleteDiscipline;
     AutoCompleteTextView autoCompleteAuthor;
     AutoCompleteTextView autoCompleteTheme;
+    AutoCompleteTextView autoCompleteTheme2;
+    AutoCompleteTextView autoCompleteTheme3;
+    AutoCompleteTextView autoCompleteTheme4;
+    AutoCompleteTextView autoCompleteTheme5;
 
+    TextView descriptionTheme2;
+    TextView descriptionTheme3;
+    TextView descriptionTheme4;
+    TextView descriptionTheme5;
+
+    ImageButton newTheme;
+    ImageButton newTheme2;
+    ImageButton newTheme3;
+    ImageButton newTheme4;
+
+    ImageButton deleteTheme2;
+    ImageButton deleteTheme3;
+    ImageButton deleteTheme4;
+    ImageButton deleteTheme5;
 
     TextView textFile;
     TextView descriptionSection;
@@ -82,7 +101,27 @@ public class Download extends AppCompatActivity {
 
         autoCompleteDiscipline = (AutoCompleteTextView) findViewById(R.id.autoCompleteDiscipline);
         autoCompleteAuthor = (AutoCompleteTextView) findViewById(R.id.autoCompleteAuthor);
+
         autoCompleteTheme = (AutoCompleteTextView) findViewById(R.id.autoCompleteTheme);
+        autoCompleteTheme2 = (AutoCompleteTextView) findViewById(R.id.autoCompleteTheme2);
+        autoCompleteTheme3 = (AutoCompleteTextView) findViewById(R.id.autoCompleteTheme3);
+        autoCompleteTheme4 = (AutoCompleteTextView) findViewById(R.id.autoCompleteTheme4);
+        autoCompleteTheme5 = (AutoCompleteTextView) findViewById(R.id.autoCompleteTheme5);
+
+        descriptionTheme2 = (TextView) findViewById(R.id.descriptionTheme2);
+        descriptionTheme3 = (TextView) findViewById(R.id.descriptionTheme3);
+        descriptionTheme4 = (TextView) findViewById(R.id.descriptionTheme4);
+        descriptionTheme5 = (TextView) findViewById(R.id.descriptionTheme5);
+
+        newTheme = (ImageButton) findViewById(R.id.newTheme);
+        newTheme2 = (ImageButton) findViewById(R.id.newTheme2);
+        newTheme3 = (ImageButton) findViewById(R.id.newTheme3);
+        newTheme4 = (ImageButton) findViewById(R.id.newTheme4);
+
+        deleteTheme2 = (ImageButton) findViewById(R.id.deleteTheme2);
+        deleteTheme3 = (ImageButton) findViewById(R.id.deleteTheme3);
+        deleteTheme4 = (ImageButton) findViewById(R.id.deleteTheme4);
+        deleteTheme5 = (ImageButton) findViewById(R.id.deleteTheme5);
 
         btnCreatingSolution = (Button) findViewById(R.id.btnCreatingSolution);
 
@@ -183,10 +222,32 @@ public class Download extends AppCompatActivity {
                 this, android.R.layout.simple_dropdown_item_1line, theme);
 
         autoCompleteTheme.setAdapter(userAdapter);
+        autoCompleteTheme2.setAdapter(userAdapter);
+        autoCompleteTheme3.setAdapter(userAdapter);
+        autoCompleteTheme4.setAdapter(userAdapter);
+        autoCompleteTheme5.setAdapter(userAdapter);
+
         cursor.close();
         //------------------------------------------------------------------------------------------
 
+        autoCompleteTheme2.setVisibility(View.GONE);
+        autoCompleteTheme3.setVisibility(View.GONE);
+        autoCompleteTheme4.setVisibility(View.GONE);
+        autoCompleteTheme5.setVisibility(View.GONE);
 
+        descriptionTheme2.setVisibility(View.GONE);
+        descriptionTheme3.setVisibility(View.GONE);
+        descriptionTheme4.setVisibility(View.GONE);
+        descriptionTheme5.setVisibility(View.GONE);
+
+        newTheme2.setVisibility(View.GONE);
+        newTheme3.setVisibility(View.GONE);
+        newTheme4.setVisibility(View.GONE);
+
+        deleteTheme2.setVisibility(View.GONE);
+        deleteTheme3.setVisibility(View.GONE);
+        deleteTheme4.setVisibility(View.GONE);
+        deleteTheme5.setVisibility(View.GONE);
 
         //прикрепление пдф
 
@@ -213,6 +274,159 @@ public class Download extends AppCompatActivity {
 
                 // Получаем выбранный объект
                 String item = (String)parent.getItemAtPosition(position);
+
+                newTheme.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        autoCompleteTheme2.setVisibility(View.VISIBLE);
+                        descriptionTheme2.setVisibility(View.VISIBLE);
+                        newTheme2.setVisibility(View.VISIBLE);
+                        deleteTheme2.setVisibility(View.VISIBLE);
+
+                    }
+                });
+
+                newTheme2.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        autoCompleteTheme3.setVisibility(View.VISIBLE);
+                        descriptionTheme3.setVisibility(View.VISIBLE);
+                        newTheme3.setVisibility(View.VISIBLE);
+                        deleteTheme3.setVisibility(View.VISIBLE);
+
+                    }
+                });
+
+                newTheme3.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        autoCompleteTheme4.setVisibility(View.VISIBLE);
+                        descriptionTheme4.setVisibility(View.VISIBLE);
+                        newTheme4.setVisibility(View.VISIBLE);
+                        deleteTheme4.setVisibility(View.VISIBLE);
+
+                    }
+                });
+
+                newTheme4.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        autoCompleteTheme5.setVisibility(View.VISIBLE);
+                        descriptionTheme5.setVisibility(View.VISIBLE);
+                        deleteTheme5.setVisibility(View.VISIBLE);
+
+                    }
+                });
+
+                deleteTheme5.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        autoCompleteTheme5.setVisibility(View.GONE);
+                        descriptionTheme5.setVisibility(View.GONE);
+                        deleteTheme5.setVisibility(View.GONE);
+
+                    }
+                });
+
+                deleteTheme4.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+
+                        String buf = "";
+
+                        if (autoCompleteTheme5.getVisibility() == View.VISIBLE) {
+                            buf = autoCompleteTheme5.getText().toString();
+                            autoCompleteTheme4.setText(buf);
+
+                            autoCompleteTheme5.setVisibility(View.GONE);
+                            autoCompleteTheme5.setText("");
+                            descriptionTheme5.setVisibility(View.GONE);
+                            deleteTheme5.setVisibility(View.GONE);
+                        } else {
+                            autoCompleteTheme4.setVisibility(View.GONE);
+                            autoCompleteTheme4.setText("");
+                            descriptionTheme4.setVisibility(View.GONE);
+                            newTheme4.setVisibility(View.GONE);
+                            deleteTheme4.setVisibility(View.GONE);
+                        }
+
+                    }
+                });
+
+                deleteTheme3.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+
+                        String buf = "";
+
+                        if (autoCompleteTheme4.getVisibility() == View.VISIBLE) {
+                            buf = autoCompleteTheme4.getText().toString();
+                            autoCompleteTheme3.setText(buf);
+
+                            if (autoCompleteTheme5.getVisibility() == View.VISIBLE) {
+                                buf = autoCompleteTheme5.getText().toString();
+                                autoCompleteTheme4.setText(buf);
+
+                                autoCompleteTheme5.setVisibility(View.GONE);
+                                autoCompleteTheme5.setText("");
+                                descriptionTheme5.setVisibility(View.GONE);
+                                deleteTheme5.setVisibility(View.GONE);
+                            } else {
+                                autoCompleteTheme4.setVisibility(View.GONE);
+                                autoCompleteTheme4.setText("");
+                                descriptionTheme4.setVisibility(View.GONE);
+                                newTheme4.setVisibility(View.GONE);
+                                deleteTheme4.setVisibility(View.GONE);
+                            }
+                        } else {
+                            autoCompleteTheme3.setVisibility(View.GONE);
+                            autoCompleteTheme3.setText("");
+                            descriptionTheme3.setVisibility(View.GONE);
+                            newTheme3.setVisibility(View.GONE);
+                            deleteTheme3.setVisibility(View.GONE);
+                        }
+
+                    }
+                });
+
+                deleteTheme2.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+
+                        String buf = "";
+
+                        if (autoCompleteTheme3.getVisibility() == View.VISIBLE) {
+                            buf = autoCompleteTheme3.getText().toString();
+                            autoCompleteTheme2.setText(buf);
+
+                            if (autoCompleteTheme4.getVisibility() == View.VISIBLE) {
+                                buf = autoCompleteTheme4.getText().toString();
+                                autoCompleteTheme3.setText(buf);
+
+                                if (autoCompleteTheme5.getVisibility() == View.VISIBLE) {
+                                    buf = autoCompleteTheme5.getText().toString();
+                                    autoCompleteTheme4.setText(buf);
+
+                                    autoCompleteTheme5.setVisibility(View.GONE);
+                                    autoCompleteTheme5.setText("");
+                                    descriptionTheme5.setVisibility(View.GONE);
+                                    deleteTheme5.setVisibility(View.GONE);
+                                } else {
+                                    autoCompleteTheme4.setVisibility(View.GONE);
+                                    autoCompleteTheme4.setText("");
+                                    descriptionTheme4.setVisibility(View.GONE);
+                                    newTheme4.setVisibility(View.GONE);
+                                    deleteTheme4.setVisibility(View.GONE);
+                                }
+                            } else {
+                                autoCompleteTheme3.setVisibility(View.GONE);
+                                autoCompleteTheme3.setText("");
+                                descriptionTheme3.setVisibility(View.GONE);
+                                newTheme3.setVisibility(View.GONE);
+                                deleteTheme3.setVisibility(View.GONE);
+                            }
+                        } else {
+                            autoCompleteTheme2.setVisibility(View.GONE);
+                            autoCompleteTheme2.setText("");
+                            descriptionTheme2.setVisibility(View.GONE);
+                            newTheme2.setVisibility(View.GONE);
+                            deleteTheme2.setVisibility(View.GONE);
+                        }
+
+                    }
+                });
 
                 if (item.equals("Контрольная работа") || item.equals("Тест") || item.equals("Сессия") || item.equals("Лабораторные работы")) {
 
@@ -255,6 +469,10 @@ public class Download extends AppCompatActivity {
                             String autoCompleteDisciplineValue = autoCompleteDiscipline.getText().toString();
                             String autoCompleteAuthorValue = autoCompleteAuthor.getText().toString();
                             String autoCompleteThemeValue = autoCompleteTheme.getText().toString();
+                            String autoCompleteThemeValue2 = autoCompleteTheme2.getText().toString();
+                            String autoCompleteThemeValue3 = autoCompleteTheme3.getText().toString();
+                            String autoCompleteThemeValue4 = autoCompleteTheme4.getText().toString();
+                            String autoCompleteThemeValue5 = autoCompleteTheme5.getText().toString();
 
                             String error = "";
                             boolean errorFlag = true;
@@ -274,6 +492,26 @@ public class Download extends AppCompatActivity {
                                 errorFlag = false;
                             }
 
+                            if (autoCompleteThemeValue2.equals("") && (autoCompleteTheme2.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 2";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue3.equals("") && (autoCompleteTheme3.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 3";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue4.equals("") && (autoCompleteTheme4.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 4";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 5";
+                                errorFlag = false;
+                            }
+
                             if (errorFlag) {
 
                                 String regex = "^[а-яёА-ЯЁ\\t\\n\\f\\r\\p{Z}]*$";
@@ -288,6 +526,30 @@ public class Download extends AppCompatActivity {
                                 m = pattern.matcher(autoCompleteThemeValue);
                                 if (!m.matches()){
                                     error += "\n- введены недопустимые символы в названии темы";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue2);
+                                if (!(m.matches()) && (autoCompleteTheme2.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 2";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue3);
+                                if (!(m.matches()) && (autoCompleteTheme3.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 3";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue4);
+                                if (!(m.matches()) && (autoCompleteTheme4.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 4";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue5);
+                                if (!(m.matches()) && (autoCompleteTheme5.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 5";
                                     errorFlag = false;
                                 }
 
@@ -313,6 +575,26 @@ public class Download extends AppCompatActivity {
 
                                     if (autoCompleteThemeValue.length() > 50) {
                                         error += "\n- название темы слишком длинное";
+                                        errorFlag = false;
+                                    }
+
+                                    if (autoCompleteThemeValue2.length() > 50) {
+                                        error += "\n- название темы 2 слишком длинное";
+                                        errorFlag = false;
+                                    }
+
+                                    if (autoCompleteThemeValue3.length() > 50) {
+                                        error += "\n- название темы 3 слишком длинное";
+                                        errorFlag = false;
+                                    }
+
+                                    if (autoCompleteThemeValue4.length() > 50) {
+                                        error += "\n- название темы 4 слишком длинное";
+                                        errorFlag = false;
+                                    }
+
+                                    if (autoCompleteThemeValue5.length() > 50) {
+                                        error += "\n- название темы 5 слишком длинное";
                                         errorFlag = false;
                                     }
 
@@ -519,6 +801,10 @@ public class Download extends AppCompatActivity {
                             String autoCompleteDisciplineValue = autoCompleteDiscipline.getText().toString();
                             String autoCompleteAuthorValue = autoCompleteAuthor.getText().toString();
                             String autoCompleteThemeValue = autoCompleteTheme.getText().toString();
+                            String autoCompleteThemeValue2 = autoCompleteTheme2.getText().toString();
+                            String autoCompleteThemeValue3 = autoCompleteTheme3.getText().toString();
+                            String autoCompleteThemeValue4 = autoCompleteTheme4.getText().toString();
+                            String autoCompleteThemeValue5 = autoCompleteTheme5.getText().toString();
 
                             String error = "";
                             boolean errorFlag = true;
@@ -538,6 +824,26 @@ public class Download extends AppCompatActivity {
                                 errorFlag = false;
                             }
 
+                            if (autoCompleteThemeValue2.equals("") && (autoCompleteTheme2.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 2";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue3.equals("") && (autoCompleteTheme3.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 3";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue4.equals("") && (autoCompleteTheme4.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 4";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 5";
+                                errorFlag = false;
+                            }
+
                             if (errorFlag) {
 
                                 String regex = "^[а-яёА-ЯЁ\\t\\n\\f\\r\\p{Z}]*$";
@@ -552,6 +858,30 @@ public class Download extends AppCompatActivity {
                                 m = pattern.matcher(autoCompleteThemeValue);
                                 if (!m.matches()){
                                     error += "\n- введены недопустимые символы в названии темы";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue2);
+                                if (!(m.matches()) && (autoCompleteTheme2.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 2";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue3);
+                                if (!(m.matches()) && (autoCompleteTheme3.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 3";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue4);
+                                if (!(m.matches()) && (autoCompleteTheme4.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 4";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue5);
+                                if (!(m.matches()) && (autoCompleteTheme5.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 5";
                                     errorFlag = false;
                                 }
 
@@ -789,6 +1119,10 @@ public class Download extends AppCompatActivity {
                             String autoCompleteDisciplineValue = autoCompleteDiscipline.getText().toString();
                             String autoCompleteAuthorValue = autoCompleteAuthor.getText().toString();
                             String autoCompleteThemeValue = autoCompleteTheme.getText().toString();
+                            String autoCompleteThemeValue2 = autoCompleteTheme2.getText().toString();
+                            String autoCompleteThemeValue3 = autoCompleteTheme3.getText().toString();
+                            String autoCompleteThemeValue4 = autoCompleteTheme4.getText().toString();
+                            String autoCompleteThemeValue5 = autoCompleteTheme5.getText().toString();
 
                             String error = "";
                             boolean errorFlag = true;
@@ -808,6 +1142,26 @@ public class Download extends AppCompatActivity {
                                 errorFlag = false;
                             }
 
+                            if (autoCompleteThemeValue2.equals("") && (autoCompleteTheme2.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 2";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue3.equals("") && (autoCompleteTheme3.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 3";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue4.equals("") && (autoCompleteTheme4.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 4";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 5";
+                                errorFlag = false;
+                            }
+
                             if (errorFlag) {
 
                                 String regex = "^[а-яёА-ЯЁ\\t\\n\\f\\r\\p{Z}]*$";
@@ -822,6 +1176,30 @@ public class Download extends AppCompatActivity {
                                 m = pattern.matcher(autoCompleteThemeValue);
                                 if (!m.matches()){
                                     error += "\n- введены недопустимые символы в названии темы";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue2);
+                                if (!(m.matches()) && (autoCompleteTheme2.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 2";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue3);
+                                if (!(m.matches()) && (autoCompleteTheme3.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 3";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue4);
+                                if (!(m.matches()) && (autoCompleteTheme4.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 4";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue5);
+                                if (!(m.matches()) && (autoCompleteTheme5.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 5";
                                     errorFlag = false;
                                 }
 
@@ -1004,6 +1382,10 @@ public class Download extends AppCompatActivity {
                             String autoCompleteDisciplineValue = autoCompleteDiscipline.getText().toString();
                             String autoCompleteAuthorValue = autoCompleteAuthor.getText().toString();
                             String autoCompleteThemeValue = autoCompleteTheme.getText().toString();
+                            String autoCompleteThemeValue2 = autoCompleteTheme2.getText().toString();
+                            String autoCompleteThemeValue3 = autoCompleteTheme3.getText().toString();
+                            String autoCompleteThemeValue4 = autoCompleteTheme4.getText().toString();
+                            String autoCompleteThemeValue5 = autoCompleteTheme5.getText().toString();
 
                             String error = "";
                             boolean errorFlag = true;
@@ -1023,6 +1405,26 @@ public class Download extends AppCompatActivity {
                                 errorFlag = false;
                             }
 
+                            if (autoCompleteThemeValue2.equals("") && (autoCompleteTheme2.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 2";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue3.equals("") && (autoCompleteTheme3.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 3";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue4.equals("") && (autoCompleteTheme4.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 4";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 5";
+                                errorFlag = false;
+                            }
+
                             if (errorFlag) {
 
                                 String regex = "^[а-яёА-ЯЁ\\t\\n\\f\\r\\p{Z}]*$";
@@ -1037,6 +1439,30 @@ public class Download extends AppCompatActivity {
                                 m = pattern.matcher(autoCompleteThemeValue);
                                 if (!m.matches()){
                                     error += "\n- введены недопустимые символы в названии темы";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue2);
+                                if (!(m.matches()) && (autoCompleteTheme2.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 2";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue3);
+                                if (!(m.matches()) && (autoCompleteTheme3.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 3";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue4);
+                                if (!(m.matches()) && (autoCompleteTheme4.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 4";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue5);
+                                if (!(m.matches()) && (autoCompleteTheme5.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 5";
                                     errorFlag = false;
                                 }
 
@@ -1269,6 +1695,10 @@ public class Download extends AppCompatActivity {
                             String autoCompleteDisciplineValue = autoCompleteDiscipline.getText().toString();
                             String autoCompleteAuthorValue = autoCompleteAuthor.getText().toString();
                             String autoCompleteThemeValue = autoCompleteTheme.getText().toString();
+                            String autoCompleteThemeValue2 = autoCompleteTheme2.getText().toString();
+                            String autoCompleteThemeValue3 = autoCompleteTheme3.getText().toString();
+                            String autoCompleteThemeValue4 = autoCompleteTheme4.getText().toString();
+                            String autoCompleteThemeValue5 = autoCompleteTheme5.getText().toString();
 
                             String error = "";
                             boolean errorFlag = true;
@@ -1288,6 +1718,26 @@ public class Download extends AppCompatActivity {
                                 errorFlag = false;
                             }
 
+                            if (autoCompleteThemeValue2.equals("") && (autoCompleteTheme2.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 2";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue3.equals("") && (autoCompleteTheme3.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 3";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue4.equals("") && (autoCompleteTheme4.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 4";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 5";
+                                errorFlag = false;
+                            }
+
                             if (errorFlag) {
 
                                 String regex = "^[а-яёА-ЯЁ\\t\\n\\f\\r\\p{Z}]*$";
@@ -1302,6 +1752,30 @@ public class Download extends AppCompatActivity {
                                 m = pattern.matcher(autoCompleteThemeValue);
                                 if (!m.matches()){
                                     error += "\n- введены недопустимые символы в названии темы";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue2);
+                                if (!(m.matches()) && (autoCompleteTheme2.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 2";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue3);
+                                if (!(m.matches()) && (autoCompleteTheme3.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 3";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue4);
+                                if (!(m.matches()) && (autoCompleteTheme4.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 4";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue5);
+                                if (!(m.matches()) && (autoCompleteTheme5.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 5";
                                     errorFlag = false;
                                 }
 
@@ -1551,6 +2025,10 @@ public class Download extends AppCompatActivity {
                             String autoCompleteDisciplineValue = autoCompleteDiscipline.getText().toString();
                             String autoCompleteAuthorValue = autoCompleteAuthor.getText().toString();
                             String autoCompleteThemeValue = autoCompleteTheme.getText().toString();
+                            String autoCompleteThemeValue2 = autoCompleteTheme2.getText().toString();
+                            String autoCompleteThemeValue3 = autoCompleteTheme3.getText().toString();
+                            String autoCompleteThemeValue4 = autoCompleteTheme4.getText().toString();
+                            String autoCompleteThemeValue5 = autoCompleteTheme5.getText().toString();
 
                             String error = "";
                             boolean errorFlag = true;
@@ -1570,6 +2048,26 @@ public class Download extends AppCompatActivity {
                                 errorFlag = false;
                             }
 
+                            if (autoCompleteThemeValue2.equals("") && (autoCompleteTheme2.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 2";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue3.equals("") && (autoCompleteTheme3.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 3";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue4.equals("") && (autoCompleteTheme4.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 4";
+                                errorFlag = false;
+                            }
+
+                            if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
+                                error += "\n- нужно ввести название темы 5";
+                                errorFlag = false;
+                            }
+
                             if (errorFlag) {
 
                                 String regex = "^[а-яёА-ЯЁ\\t\\n\\f\\r\\p{Z}]*$";
@@ -1584,6 +2082,30 @@ public class Download extends AppCompatActivity {
                                 m = pattern.matcher(autoCompleteThemeValue);
                                 if (!m.matches()){
                                     error += "\n- введены недопустимые символы в названии темы";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue2);
+                                if (!(m.matches()) && (autoCompleteTheme2.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 2";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue3);
+                                if (!(m.matches()) && (autoCompleteTheme3.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 3";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue4);
+                                if (!(m.matches()) && (autoCompleteTheme4.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 4";
+                                    errorFlag = false;
+                                }
+
+                                m = pattern.matcher(autoCompleteThemeValue5);
+                                if (!(m.matches()) && (autoCompleteTheme5.getVisibility() == View.VISIBLE)){
+                                    error += "\n- введены недопустимые символы в названии темы 5";
                                     errorFlag = false;
                                 }
 
