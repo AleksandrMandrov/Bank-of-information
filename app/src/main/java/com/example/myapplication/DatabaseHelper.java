@@ -35,7 +35,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
     static final String TABLE_THEMES = "themes"; // таблица с возможными темами "работ" в бд
     static final String COLUMN_ID_THEME = "_id_theme";
-    static final String COLUMN_NAME_THEME = "theme";
+    static final String COLUMN_THEME = "theme";
 
     static final String TABLE_WORK_DESCRIPTION = "work_description"; // таблица с описанием работ в бд
     static final String COLUMN_ID_WORK_DESCRIPTION = "_id_work_description";

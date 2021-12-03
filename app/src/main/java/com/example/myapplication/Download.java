@@ -212,7 +212,7 @@ public class Download extends AppCompatActivity {
         ArrayList<String> theme = new ArrayList<String>();
 
         if (cursor.moveToFirst()) {
-            int nameAuthor = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_THEME);
+            int nameAuthor = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
 
             do {
                 theme.add(cursor.getString(nameAuthor));
@@ -513,6 +513,37 @@ public class Download extends AppCompatActivity {
                                 errorFlag = false;
                             }
 
+                            boolean repeatingError = true;
+
+                            if (!(autoCompleteThemeValue2.equals("")) && ( autoCompleteThemeValue2.equals(autoCompleteThemeValue)
+                             || autoCompleteThemeValue2.equals(autoCompleteThemeValue3) || autoCompleteThemeValue2.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue3.equals("")) && ( autoCompleteThemeValue3.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && ( autoCompleteThemeValue4.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue4.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && autoCompleteThemeValue5.equals(autoCompleteThemeValue)) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
                             if (errorFlag) {
 
                                 String regex = "^[а-яёА-ЯЁ\\t\\n\\f\\r\\p{Z}]*$";
@@ -713,7 +744,7 @@ public class Download extends AppCompatActivity {
                                                             cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
 
                                                             if (cursor.moveToFirst()) {
-                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_THEME);
+                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
 
                                                                 do {
                                                                     if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
@@ -726,7 +757,7 @@ public class Download extends AppCompatActivity {
 
                                                             if (!noAppend) {
                                                                 ContentValues cv = new ContentValues();
-                                                                cv.put(DatabaseHelper.COLUMN_NAME_THEME, autoCompleteThemeValue);
+                                                                cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                                 db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
                                                                 db.close();
                                                             }
@@ -843,6 +874,37 @@ public class Download extends AppCompatActivity {
                             if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
                                 error += "\n- нужно ввести название темы 5";
                                 errorFlag = false;
+                            }
+
+                            boolean repeatingError = true;
+
+                            if (!(autoCompleteThemeValue2.equals("")) && ( autoCompleteThemeValue2.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue3) || autoCompleteThemeValue2.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue3.equals("")) && ( autoCompleteThemeValue3.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && ( autoCompleteThemeValue4.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue4.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && autoCompleteThemeValue5.equals(autoCompleteThemeValue)) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
                             }
 
                             if (errorFlag) {
@@ -1030,7 +1092,7 @@ public class Download extends AppCompatActivity {
                                                         cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
 
                                                         if (cursor.moveToFirst()) {
-                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_THEME);
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
 
                                                             do {
                                                                 if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
@@ -1043,7 +1105,7 @@ public class Download extends AppCompatActivity {
 
                                                         if (!noAppend) {
                                                             ContentValues cv = new ContentValues();
-                                                            cv.put(DatabaseHelper.COLUMN_NAME_THEME, autoCompleteThemeValue);
+                                                            cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                             db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
                                                             db.close();
                                                         }
@@ -1161,6 +1223,37 @@ public class Download extends AppCompatActivity {
                             if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
                                 error += "\n- нужно ввести название темы 5";
                                 errorFlag = false;
+                            }
+
+                            boolean repeatingError = true;
+
+                            if (!(autoCompleteThemeValue2.equals("")) && ( autoCompleteThemeValue2.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue3) || autoCompleteThemeValue2.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue3.equals("")) && ( autoCompleteThemeValue3.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && ( autoCompleteThemeValue4.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue4.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && autoCompleteThemeValue5.equals(autoCompleteThemeValue)) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
                             }
 
                             if (errorFlag) {
@@ -1301,7 +1394,7 @@ public class Download extends AppCompatActivity {
                                             cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
 
                                             if (cursor.moveToFirst()) {
-                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_THEME);
+                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
 
                                                 do {
                                                     if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
@@ -1314,7 +1407,7 @@ public class Download extends AppCompatActivity {
 
                                             if (!noAppend) {
                                                 ContentValues cv = new ContentValues();
-                                                cv.put(DatabaseHelper.COLUMN_NAME_THEME, autoCompleteThemeValue);
+                                                cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                 db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
                                                 db.close();
                                             }
@@ -1424,6 +1517,37 @@ public class Download extends AppCompatActivity {
                             if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
                                 error += "\n- нужно ввести название темы 5";
                                 errorFlag = false;
+                            }
+
+                            boolean repeatingError = true;
+
+                            if (!(autoCompleteThemeValue2.equals("")) && ( autoCompleteThemeValue2.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue3) || autoCompleteThemeValue2.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue3.equals("")) && ( autoCompleteThemeValue3.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && ( autoCompleteThemeValue4.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue4.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && autoCompleteThemeValue5.equals(autoCompleteThemeValue)) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
                             }
 
                             if (errorFlag) {
@@ -1604,7 +1728,7 @@ public class Download extends AppCompatActivity {
                                                     cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
 
                                                     if (cursor.moveToFirst()) {
-                                                        int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_THEME);
+                                                        int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
 
                                                         do {
                                                             if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
@@ -1617,7 +1741,7 @@ public class Download extends AppCompatActivity {
 
                                                     if (!noAppend) {
                                                         ContentValues cv = new ContentValues();
-                                                        cv.put(DatabaseHelper.COLUMN_NAME_THEME, autoCompleteThemeValue);
+                                                        cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                         db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
                                                         db.close();
                                                     }
@@ -1737,6 +1861,37 @@ public class Download extends AppCompatActivity {
                             if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
                                 error += "\n- нужно ввести название темы 5";
                                 errorFlag = false;
+                            }
+
+                            boolean repeatingError = true;
+
+                            if (!(autoCompleteThemeValue2.equals("")) && ( autoCompleteThemeValue2.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue3) || autoCompleteThemeValue2.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue3.equals("")) && ( autoCompleteThemeValue3.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && ( autoCompleteThemeValue4.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue4.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && autoCompleteThemeValue5.equals(autoCompleteThemeValue)) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
                             }
 
                             if (errorFlag) {
@@ -1936,7 +2091,7 @@ public class Download extends AppCompatActivity {
                                                         cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
 
                                                         if (cursor.moveToFirst()) {
-                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_THEME);
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
 
                                                             do {
                                                                 if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
@@ -1949,7 +2104,7 @@ public class Download extends AppCompatActivity {
 
                                                         if (!noAppend) {
                                                             ContentValues cv = new ContentValues();
-                                                            cv.put(DatabaseHelper.COLUMN_NAME_THEME, autoCompleteThemeValue);
+                                                            cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                             db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
                                                             db.close();
                                                         }
@@ -2067,6 +2222,37 @@ public class Download extends AppCompatActivity {
                             if (autoCompleteThemeValue5.equals("") && (autoCompleteTheme5.getVisibility() == View.VISIBLE)) {
                                 error += "\n- нужно ввести название темы 5";
                                 errorFlag = false;
+                            }
+
+                            boolean repeatingError = true;
+
+                            if (!(autoCompleteThemeValue2.equals("")) && ( autoCompleteThemeValue2.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue3) || autoCompleteThemeValue2.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue2.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue3.equals("")) && ( autoCompleteThemeValue3.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue4)
+                                    || autoCompleteThemeValue3.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && ( autoCompleteThemeValue4.equals(autoCompleteThemeValue)
+                                    || autoCompleteThemeValue4.equals(autoCompleteThemeValue5))) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
+                            }
+
+                            if (repeatingError && !(autoCompleteThemeValue4.equals("")) && autoCompleteThemeValue5.equals(autoCompleteThemeValue)) {
+                                error += "\n- темы не могут иметь одинаковое название";
+                                errorFlag = false;
+                                repeatingError = false;
                             }
 
                             if (errorFlag) {
@@ -2258,7 +2444,7 @@ public class Download extends AppCompatActivity {
                                                     cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
 
                                                     if (cursor.moveToFirst()) {
-                                                        int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_THEME);
+                                                        int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
 
                                                         do {
                                                             if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
@@ -2271,7 +2457,7 @@ public class Download extends AppCompatActivity {
 
                                                     if (!noAppend) {
                                                         ContentValues cv = new ContentValues();
-                                                        cv.put(DatabaseHelper.COLUMN_NAME_THEME, autoCompleteThemeValue);
+                                                        cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                         db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
                                                         db.close();
                                                     }
