@@ -34,7 +34,7 @@ public class InformationAboutTheSolution extends AppCompatActivity {
         setContentView(R.layout.activity_information_about_the_solution);
     }
     public void moveToDownload(View view) {
-        Intent intent = new Intent(this, SimilarSolutions.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, SimilarSolutions.class);
+        //startActivity(intent);
     }
 }
