@@ -11,17 +11,25 @@
         android:theme="@style/Theme.MyApplication" >
         <activity
             android:name=".UsersProfile"
-            android:exported="false" />
+            android:parentActivityName=".LastSolutions"
+            android:exported="true"
+            android:label="Профиль пользователя"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SearchingResults"
-            android:exported="false" />
+            android:parentActivityName=".LastSolutions"
+            android:exported="true"
+            android:label="Результаты загрузки"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".InformationAboutTheSolution"
+            android:parentActivityName=".LastSolutions"
             android:exported="true"
             android:label="Последняя загруженная работа"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Download"
+            android:parentActivityName=".LastSolutions"
             android:exported="true"
             android:label="Создание решений"
             android:screenOrientation="portrait" />
@@ -38,7 +46,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="Вход в систему"
+            android:label="Bank of information"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

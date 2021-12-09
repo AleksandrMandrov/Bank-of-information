@@ -16,6 +16,15 @@ public class LastSolutions extends AppCompatActivity {
         setContentView(R.layout.activity_last_solutions);
 
     }
+    public void moveToSearchingIn(View view) {
+        Intent intent = new Intent(this, SearchingResults.class);
+        startActivity(intent);
+    }
+
+    public void moveToUsersIn(View view) {
+        Intent intent = new Intent(this, UsersProfile.class);
+        startActivity(intent);
+    }
 
     public void moveToDownload(View view) {
         Bundle arguments = getIntent().getExtras();
