@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.SimpleCursorAdapter;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -1073,8 +1074,9 @@ public class Download extends AppCompatActivity {
                                                             int id_user = arguments.getInt("id_user");
 
                                                             Date currentDate = new Date();
-                                                            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-                                                            String dateText = dateFormat.format(currentDate);
+                                                            DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
+                                                            String dateText = df.format(Calendar.getInstance().getTime());
+
 
                                                             ContentValues cv = new ContentValues();
                                                             cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, id_WDescription);
@@ -1093,8 +1095,6 @@ public class Download extends AppCompatActivity {
                                                             }
 
                                                             userCursor.close();
-                                                            db.close();
-
 
                                                             Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
                                                             intent.putExtra("id_user", id_user);
@@ -1392,7 +1392,6 @@ public class Download extends AppCompatActivity {
                                                             ContentValues cv = new ContentValues();
                                                             cv.put(DatabaseHelper.COLUMN_NAME_DISCIPLINE, autoCompleteDisciplineValue);
                                                             db.insert(DatabaseHelper.TABLE_DISCIPLINES, null, cv);
-                                                            db.close();
                                                         }
                                                         //---------------------------------------------------
 
@@ -1417,7 +1416,6 @@ public class Download extends AppCompatActivity {
                                                             ContentValues cv = new ContentValues();
                                                             cv.put(DatabaseHelper.COLUMN_NAME_AUTHOR, autoCompleteAuthorValue);
                                                             db.insert(DatabaseHelper.TABLE_AUTHORS, null, cv);
-                                                            db.close();
                                                         }
                                                         //---------------------------------------------------
 
@@ -1442,7 +1440,6 @@ public class Download extends AppCompatActivity {
                                                             ContentValues cv = new ContentValues();
                                                             cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                             db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
-                                                            db.close();
                                                         }
                                                         //---------------------------------------------------
 
@@ -1775,7 +1772,6 @@ public class Download extends AppCompatActivity {
                                                         }
 
                                                         userCursor.close();
-                                                        db.close();
 
 
                                                         Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
@@ -2030,7 +2026,6 @@ public class Download extends AppCompatActivity {
                                                 ContentValues cv = new ContentValues();
                                                 cv.put(DatabaseHelper.COLUMN_NAME_DISCIPLINE, autoCompleteDisciplineValue);
                                                 db.insert(DatabaseHelper.TABLE_DISCIPLINES, null, cv);
-                                                db.close();
                                             }
                                             //---------------------------------------------------
 
@@ -2055,7 +2050,6 @@ public class Download extends AppCompatActivity {
                                                 ContentValues cv = new ContentValues();
                                                 cv.put(DatabaseHelper.COLUMN_NAME_AUTHOR, autoCompleteAuthorValue);
                                                 db.insert(DatabaseHelper.TABLE_AUTHORS, null, cv);
-                                                db.close();
                                             }
                                             //---------------------------------------------------
 
@@ -2080,7 +2074,6 @@ public class Download extends AppCompatActivity {
                                                 ContentValues cv = new ContentValues();
                                                 cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                 db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
-                                                db.close();
                                             }
                                             //---------------------------------------------------
 
@@ -2408,7 +2401,6 @@ public class Download extends AppCompatActivity {
                                             }
 
                                             userCursor.close();
-                                            db.close();
 
 
                                             Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
@@ -2698,7 +2690,6 @@ public class Download extends AppCompatActivity {
                                                         ContentValues cv = new ContentValues();
                                                         cv.put(DatabaseHelper.COLUMN_NAME_DISCIPLINE, autoCompleteDisciplineValue);
                                                         db.insert(DatabaseHelper.TABLE_DISCIPLINES, null, cv);
-                                                        db.close();
                                                     }
                                                     //---------------------------------------------------
 
@@ -2723,7 +2714,6 @@ public class Download extends AppCompatActivity {
                                                         ContentValues cv = new ContentValues();
                                                         cv.put(DatabaseHelper.COLUMN_NAME_AUTHOR, autoCompleteAuthorValue);
                                                         db.insert(DatabaseHelper.TABLE_AUTHORS, null, cv);
-                                                        db.close();
                                                     }
                                                     //---------------------------------------------------
 
@@ -2748,7 +2738,6 @@ public class Download extends AppCompatActivity {
                                                         ContentValues cv = new ContentValues();
                                                         cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                         db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
-                                                        db.close();
                                                     }
                                                     //---------------------------------------------------
 
@@ -3082,8 +3071,6 @@ public class Download extends AppCompatActivity {
                                                     }
 
                                                     userCursor.close();
-                                                    db.close();
-
 
                                                     Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
                                                     intent.putExtra("id_user", id_user);
@@ -3401,7 +3388,6 @@ public class Download extends AppCompatActivity {
                                                             ContentValues cv = new ContentValues();
                                                             cv.put(DatabaseHelper.COLUMN_NAME_DISCIPLINE, autoCompleteDisciplineValue);
                                                             db.insert(DatabaseHelper.TABLE_DISCIPLINES, null, cv);
-                                                            db.close();
                                                         }
                                                         //---------------------------------------------------
 
@@ -3426,7 +3412,7 @@ public class Download extends AppCompatActivity {
                                                             ContentValues cv = new ContentValues();
                                                             cv.put(DatabaseHelper.COLUMN_NAME_AUTHOR, autoCompleteAuthorValue);
                                                             db.insert(DatabaseHelper.TABLE_AUTHORS, null, cv);
-                                                            db.close();
+
                                                         }
                                                         //---------------------------------------------------
 
@@ -3451,7 +3437,6 @@ public class Download extends AppCompatActivity {
                                                             ContentValues cv = new ContentValues();
                                                             cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                             db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
-                                                            db.close();
                                                         }
                                                         //---------------------------------------------------
 
@@ -3787,7 +3772,6 @@ public class Download extends AppCompatActivity {
                                                         }
 
                                                         userCursor.close();
-                                                        db.close();
 
 
                                                         Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
@@ -4092,7 +4076,6 @@ public class Download extends AppCompatActivity {
                                                         ContentValues cv = new ContentValues();
                                                         cv.put(DatabaseHelper.COLUMN_NAME_DISCIPLINE, autoCompleteDisciplineValue);
                                                         db.insert(DatabaseHelper.TABLE_DISCIPLINES, null, cv);
-                                                        db.close();
                                                     }
                                                     //---------------------------------------------------
 
@@ -4117,7 +4100,6 @@ public class Download extends AppCompatActivity {
                                                         ContentValues cv = new ContentValues();
                                                         cv.put(DatabaseHelper.COLUMN_NAME_AUTHOR, autoCompleteAuthorValue);
                                                         db.insert(DatabaseHelper.TABLE_AUTHORS, null, cv);
-                                                        db.close();
                                                     }
                                                     //---------------------------------------------------
 
@@ -4142,7 +4124,6 @@ public class Download extends AppCompatActivity {
                                                         ContentValues cv = new ContentValues();
                                                         cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                         db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
-                                                        db.close();
                                                     }
                                                     //---------------------------------------------------
 
@@ -4478,7 +4459,6 @@ public class Download extends AppCompatActivity {
                                                     }
 
                                                     userCursor.close();
-                                                    db.close();
 
 
                                                     Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
