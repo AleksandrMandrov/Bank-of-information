@@ -411,7 +411,7 @@
             android:background="@android:drawable/editbox_dropdown_light_frame"
             android:ems="10"
             android:hint="Ваше решение"
-            android:inputType="textPostalAddress"
+            android:inputType="none|text"
             android:padding="15dp"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"

@@ -100,13 +100,17 @@ public class MainActivity extends AppCompatActivity {
 
                 cursor = db.query(DatabaseHelper.TABLE_USERS, null, null, null, null, null, null);
 
+                int id_user = 0;
+
                 if (cursor.moveToFirst()) {
+                    id_user = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_USER);
                     int idName = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME);
                     int idemail = cursor.getColumnIndex(DatabaseHelper.COLUMN_EMAIL);
                     int idpassword = cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSWORD);
 
                     do {
                         if ((cursor.getString(idName).equals(loginEmailValue) || cursor.getString(idemail).equals(loginEmailValue)) && cursor.getString(idpassword).equals(passwordValue)) {
+                            id_user = cursor.getInt(id_user);
                             errorFlag = true;
                             break;
                         }
@@ -118,7 +122,9 @@ public class MainActivity extends AppCompatActivity {
                 if (errorFlag) {
 
                     Intent intent = new Intent(this, LastSolutions.class);
+                    intent.putExtra("id_user", id_user);
                     startActivity(intent);
+
                 } else {
                     error += "\n- была допущена ошибка в имени или пароле";
                 }

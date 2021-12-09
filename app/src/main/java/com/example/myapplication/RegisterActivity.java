@@ -168,9 +168,27 @@ public class RegisterActivity extends AppCompatActivity {
                         cv.put(DatabaseHelper.COLUMN_EMAIL, emailValue);
                         cv.put(DatabaseHelper.COLUMN_PASSWORD, passwordValue);
                         db.insert(DatabaseHelper.TABLE_USERS, null, cv);
+
+                        int id_user = 0;
+
+                        cursor = db.query(DatabaseHelper.TABLE_USERS, null, null, null, null, null, null);
+                        if (cursor.moveToFirst()) {
+                            id_user = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_USER);
+                            int idName = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME);
+
+                            do {
+                                if (cursor.getString(idName).equals(loginValue)) {
+                                    id_user = cursor.getInt(id_user);
+                                    break;
+                                }
+                            } while (cursor.moveToNext());
+                        }
+
+                        cursor.close();
                         db.close();
 
                         Intent intent = new Intent(this, LastSolutions.class);
+                        intent.putExtra("id_user", id_user);
                         startActivity(intent);
                     }
                 }

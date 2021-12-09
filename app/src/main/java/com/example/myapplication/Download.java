@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -25,7 +26,10 @@ import android.widget.TextView;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class Download extends AppCompatActivity {
@@ -82,6 +86,7 @@ public class Download extends AppCompatActivity {
     SQLiteDatabase db;
     Cursor userCursor;
     SimpleCursorAdapter userAdapter;
+
     Spinner typeOfWork;
 
     private static final int PICKFILE_RESULT_CODE = 1;
@@ -680,7 +685,7 @@ public class Download extends AppCompatActivity {
                                                         errorFlag = false;
                                                     }
 
-                                                    if (editTextDecisionValue.length() > 2000) {
+                                                    if (editTextDecisionValue.length() > 3000) {
                                                         error += "\n- текст решения слишком большой";
                                                         errorFlag = false;
 
@@ -709,7 +714,6 @@ public class Download extends AppCompatActivity {
                                                                 ContentValues cv = new ContentValues();
                                                                 cv.put(DatabaseHelper.COLUMN_NAME_DISCIPLINE, autoCompleteDisciplineValue);
                                                                 db.insert(DatabaseHelper.TABLE_DISCIPLINES, null, cv);
-                                                                db.close();
                                                             }
                                                             //---------------------------------------------------
 
@@ -734,7 +738,6 @@ public class Download extends AppCompatActivity {
                                                                 ContentValues cv = new ContentValues();
                                                                 cv.put(DatabaseHelper.COLUMN_NAME_AUTHOR, autoCompleteAuthorValue);
                                                                 db.insert(DatabaseHelper.TABLE_AUTHORS, null, cv);
-                                                                db.close();
                                                             }
                                                             //---------------------------------------------------
 
@@ -759,11 +762,343 @@ public class Download extends AppCompatActivity {
                                                                 ContentValues cv = new ContentValues();
                                                                 cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue);
                                                                 db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
-                                                                db.close();
                                                             }
                                                             //---------------------------------------------------
 
+                                                            //---------------------------------------------------
+
+                                                            if (!autoCompleteThemeValue2.equals("")) {
+
+                                                                noAppend = false;
+
+                                                                cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                                if (cursor.moveToFirst()) {
+                                                                    int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                    do {
+                                                                        if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                                            noAppend = true;
+                                                                            break;
+                                                                        }
+                                                                    } while (cursor.moveToNext());
+                                                                }
+                                                                cursor.close();
+
+                                                                if (!noAppend) {
+                                                                    ContentValues cv = new ContentValues();
+                                                                    cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue2);
+                                                                    db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                                }
+
+                                                            }
+                                                            //---------------------------------------------------
+
+                                                            //---------------------------------------------------
+
+                                                            if (!autoCompleteThemeValue3.equals("")) {
+
+                                                                noAppend = false;
+
+                                                                cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                                if (cursor.moveToFirst()) {
+                                                                    int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                    do {
+                                                                        if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                                            noAppend = true;
+                                                                            break;
+                                                                        }
+                                                                    } while (cursor.moveToNext());
+                                                                }
+                                                                cursor.close();
+
+                                                                if (!noAppend) {
+                                                                    ContentValues cv = new ContentValues();
+                                                                    cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue3);
+                                                                    db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                                }
+
+                                                            }
+                                                            //---------------------------------------------------
+
+                                                            //---------------------------------------------------
+
+                                                            if (!autoCompleteThemeValue4.equals("")) {
+
+                                                                noAppend = false;
+
+                                                                cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                                if (cursor.moveToFirst()) {
+                                                                    int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                    do {
+                                                                        if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                                            noAppend = true;
+                                                                            break;
+                                                                        }
+                                                                    } while (cursor.moveToNext());
+                                                                }
+                                                                cursor.close();
+
+                                                                if (!noAppend) {
+                                                                    ContentValues cv = new ContentValues();
+                                                                    cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue4);
+                                                                    db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                                }
+
+                                                            }
+                                                            //---------------------------------------------------
+
+                                                            //---------------------------------------------------
+
+                                                            if (!autoCompleteThemeValue5.equals("")) {
+
+                                                                noAppend = false;
+
+                                                                cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                                if (cursor.moveToFirst()) {
+                                                                    int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                    do {
+                                                                        if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                                            noAppend = true;
+                                                                            break;
+                                                                        }
+                                                                    } while (cursor.moveToNext());
+                                                                }
+                                                                cursor.close();
+
+                                                                if (!noAppend) {
+                                                                    ContentValues cv = new ContentValues();
+                                                                    cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue5);
+                                                                    db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                                }
+
+                                                            }
+                                                            //---------------------------------------------------
+
+                                                            //---------------------------------------------------
+
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_DISCIPLINES, null, null, null, null, null, null);
+
+                                                            int id_discipline = 0;
+
+                                                            if (cursor.moveToFirst()) {
+                                                                id_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                                int idName_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_DISCIPLINE);
+
+                                                                do {
+                                                                    if (cursor.getString(idName_discipline).equals(autoCompleteDisciplineValue)) {
+                                                                        id_discipline = cursor.getInt(id_discipline);
+                                                                        break;
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_AUTHORS, null, null, null, null, null, null);
+
+                                                            int id_author = 0;
+
+                                                            if (cursor.moveToFirst()) {
+                                                                id_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                                int idName_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_AUTHOR);
+
+                                                                do {
+                                                                    if (cursor.getString(idName_author).equals(autoCompleteAuthorValue)) {
+                                                                        id_author = cursor.getInt(id_author);
+                                                                        break;
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+                                                            int[] masIdThemes = new int[5];
+                                                            int lenMasIdThemes = 0;
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                            if (cursor.moveToFirst()) {
+                                                                int id_theme = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                do {
+
+                                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
+                                                                        masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                        lenMasIdThemes++;
+                                                                    }
+
+                                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                                        masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                        lenMasIdThemes++;
+                                                                    }
+
+                                                                    if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                                        masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                        lenMasIdThemes++;
+                                                                    }
+
+                                                                    if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                                        masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                        lenMasIdThemes++;
+                                                                    }
+
+                                                                    if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                                        masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                        lenMasIdThemes++;
+                                                                    }
+
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+
+                                                            noAppend = false;
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                            int id_work_description = 0;
+
+                                                            if (cursor.moveToFirst()) {
+                                                                id_work_description = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                                int idType_of_work = cursor.getColumnIndex(DatabaseHelper.COLUMN_TYPE_OF_WORK);
+                                                                int id_discipline2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                                int id_author2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                                int idTask_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_TASK_NUMBER);
+                                                                int idOption_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_OPTION_NUMBER);
+
+                                                                do {
+                                                                    if (cursor.getString(idType_of_work).equals(item) && cursor.getInt(id_discipline2) == id_discipline
+                                                                            &&  cursor.getInt(id_author2) == id_author
+                                                                            &&  cursor.getInt(idTask_number) == Integer.parseInt(editTextNumberOfTask.getText().toString())
+                                                                            &&  cursor.getInt(idOption_number) == Integer.parseInt(editTextNumberOfVariant.getText().toString())) {
+
+                                                                        int[] masIdThemes2 = new int[5];
+                                                                        int lenMasIdThemes2 = 0;
+
+                                                                        userCursor = db.query(DatabaseHelper.TABLE_THEME_OF_WORK, null, null, null, null, null, null);
+
+                                                                        if (userCursor.moveToFirst()) {
+                                                                            int id_theme = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                                            int id_workDescription = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+
+                                                                            do {
+                                                                                if (userCursor.getInt(id_workDescription) == cursor.getInt(id_work_description)) {
+                                                                                    masIdThemes2[lenMasIdThemes2] = userCursor.getInt(id_theme);
+                                                                                    lenMasIdThemes2++;
+                                                                                }
+                                                                            } while (userCursor.moveToNext());
+                                                                        }
+                                                                        userCursor.close();
+
+                                                                        boolean coincide = false;
+                                                                        int partCoincide = 0;
+
+                                                                        if (lenMasIdThemes2 == lenMasIdThemes) {
+                                                                            for (int i =0; i < lenMasIdThemes2; i++) {
+                                                                                for (int j = 0; j < lenMasIdThemes; j++) {
+                                                                                    if (masIdThemes2[i] == masIdThemes[j]) {
+                                                                                        partCoincide++;
+                                                                                        break;
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+
+
+                                                                        if (partCoincide == lenMasIdThemes2) {
+                                                                            coincide = true;
+                                                                        }
+
+                                                                        if (coincide) {
+                                                                            id_work_description = cursor.getInt(id_work_description);
+                                                                            noAppend = true;
+                                                                            break;
+                                                                        }
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+                                                            int id_WDescription = 0;
+
+                                                            if (!noAppend) {
+
+
+                                                                ContentValues cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_TYPE_OF_WORK, item);
+                                                                cv.put(DatabaseHelper.COLUMN_ID_DISCIPLINE, id_discipline);
+                                                                cv.put(DatabaseHelper.COLUMN_ID_AUTHOR, id_author);
+                                                                cv.put(DatabaseHelper.COLUMN_TASK_NUMBER, Integer.parseInt(editTextNumberOfTask.getText().toString()));
+                                                                cv.put(DatabaseHelper.COLUMN_OPTION_NUMBER, Integer.parseInt(editTextNumberOfVariant.getText().toString()));
+                                                                cv.put(DatabaseHelper.COLUMN_SECTION_NUMBER, -1);
+                                                                cv.put(DatabaseHelper.COLUMN_CHAPTER_NUMBER, -1);
+                                                                cv.put(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER, -1);
+                                                                cv.put(DatabaseHelper.COLUMN_PUBLICATION_NUMBER, -1);
+                                                                db.insert(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, cv);
+
+                                                                userCursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                                if (userCursor.moveToLast()) {
+                                                                    int idNew_work_description = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                                    idNew_work_description = userCursor.getInt(idNew_work_description);
+
+                                                                    for (int i = 0; i < lenMasIdThemes; i++) {
+                                                                        cv = new ContentValues();
+                                                                        cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, idNew_work_description);
+                                                                        cv.put(DatabaseHelper.COLUMN_ID_THEME, masIdThemes[i]);
+                                                                        db.insert(DatabaseHelper.TABLE_THEME_OF_WORK, null, cv);
+                                                                    }
+
+                                                                    id_WDescription = idNew_work_description;
+
+                                                                }
+
+                                                                userCursor.close();
+
+                                                            } else {
+
+                                                                id_WDescription = id_work_description;
+
+                                                            }
+
+                                                            Bundle arguments = getIntent().getExtras();
+                                                            int id_user = arguments.getInt("id_user");
+
+                                                            Date currentDate = new Date();
+                                                            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+                                                            String dateText = dateFormat.format(currentDate);
+
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, id_WDescription);
+                                                            cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
+                                                            cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
+                                                            cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+                                                            db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
+
+                                                            userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
+
+                                                            int id_user_work = 0;
+
+                                                            if (userCursor.moveToLast()) {
+                                                                id_user_work = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_USER_WORK);
+                                                                id_user_work = userCursor.getInt(id_user_work);
+                                                            }
+
+                                                            userCursor.close();
+                                                            db.close();
+
+
                                                             Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
+                                                            intent.putExtra("id_user", id_user);
+                                                            intent.putExtra("id_user_work", id_user_work);
                                                             startActivity(intent);
 
                                                         }
@@ -1111,8 +1446,344 @@ public class Download extends AppCompatActivity {
                                                         }
                                                         //---------------------------------------------------
 
+
+                                                        //---------------------------------------------------
+
+                                                        if (!autoCompleteThemeValue2.equals("")) {
+
+                                                            noAppend = false;
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                            if (cursor.moveToFirst()) {
+                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                do {
+                                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                                        noAppend = true;
+                                                                        break;
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+                                                            if (!noAppend) {
+                                                                ContentValues cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue2);
+                                                                db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                            }
+
+                                                        }
+                                                        //---------------------------------------------------
+
+                                                        //---------------------------------------------------
+
+                                                        if (!autoCompleteThemeValue3.equals("")) {
+
+                                                            noAppend = false;
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                            if (cursor.moveToFirst()) {
+                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                do {
+                                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                                        noAppend = true;
+                                                                        break;
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+                                                            if (!noAppend) {
+                                                                ContentValues cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue3);
+                                                                db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                            }
+
+                                                        }
+                                                        //---------------------------------------------------
+
+                                                        //---------------------------------------------------
+
+                                                        if (!autoCompleteThemeValue4.equals("")) {
+
+                                                            noAppend = false;
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                            if (cursor.moveToFirst()) {
+                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                do {
+                                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                                        noAppend = true;
+                                                                        break;
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+                                                            if (!noAppend) {
+                                                                ContentValues cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue4);
+                                                                db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                            }
+
+                                                        }
+                                                        //---------------------------------------------------
+
+                                                        //---------------------------------------------------
+
+                                                        if (!autoCompleteThemeValue5.equals("")) {
+
+                                                            noAppend = false;
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                            if (cursor.moveToFirst()) {
+                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                do {
+                                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                                        noAppend = true;
+                                                                        break;
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+                                                            if (!noAppend) {
+                                                                ContentValues cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue5);
+                                                                db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                            }
+
+                                                        }
+                                                        //---------------------------------------------------
+
+                                                        //---------------------------------------------------
+
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_DISCIPLINES, null, null, null, null, null, null);
+
+                                                        int id_discipline = 0;
+
+                                                        if (cursor.moveToFirst()) {
+                                                            id_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                            int idName_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_DISCIPLINE);
+
+                                                            do {
+                                                                if (cursor.getString(idName_discipline).equals(autoCompleteDisciplineValue)) {
+                                                                    id_discipline = cursor.getInt(id_discipline);
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_AUTHORS, null, null, null, null, null, null);
+
+                                                        int id_author = 0;
+
+                                                        if (cursor.moveToFirst()) {
+                                                            id_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                            int idName_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_AUTHOR);
+
+                                                            do {
+                                                                if (cursor.getString(idName_author).equals(autoCompleteAuthorValue)) {
+                                                                    id_author = cursor.getInt(id_author);
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        int[] masIdThemes = new int[5];
+                                                        int lenMasIdThemes = 0;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                        if (cursor.moveToFirst()) {
+                                                            int id_theme = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                            do {
+
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
+                                                                    masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                    lenMasIdThemes++;
+                                                                }
+
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                                    masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                    lenMasIdThemes++;
+                                                                }
+
+                                                                if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                                    masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                    lenMasIdThemes++;
+                                                                }
+
+                                                                if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                                    masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                    lenMasIdThemes++;
+                                                                }
+
+                                                                if ( !(autoCompleteThemeValue5.equals("")) && cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                                    masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                    lenMasIdThemes++;
+                                                                }
+
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+
+                                                        noAppend = false;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                        int id_work_description = 0;
+
+                                                        if (cursor.moveToFirst()) {
+                                                            id_work_description = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                            int idType_of_work = cursor.getColumnIndex(DatabaseHelper.COLUMN_TYPE_OF_WORK);
+                                                            int id_discipline2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                            int id_author2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                            int idTask_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_TASK_NUMBER);
+                                                            int paragraph_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER);
+                                                            int chapter_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_CHAPTER_NUMBER);
+
+                                                            do {
+                                                                if (cursor.getString(idType_of_work).equals(item) && cursor.getInt(id_discipline2) == id_discipline
+                                                                        &&  cursor.getInt(id_author2) == id_author
+                                                                        &&  cursor.getInt(idTask_number) == Integer.parseInt(editTextNumberOfTask.getText().toString())
+                                                                        &&  cursor.getInt(paragraph_number) == Integer.parseInt(editTextParagraph.getText().toString())
+                                                                        &&  cursor.getInt(chapter_number) == Integer.parseInt(editTextChapter.getText().toString())) {
+
+                                                                    int[] masIdThemes2 = new int[5];
+                                                                    int lenMasIdThemes2 = 0;
+
+                                                                    userCursor = db.query(DatabaseHelper.TABLE_THEME_OF_WORK, null, null, null, null, null, null);
+
+                                                                    if (userCursor.moveToFirst()) {
+                                                                        int id_theme = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                                        int id_workDescription = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+
+                                                                        do {
+                                                                            if (userCursor.getInt(id_workDescription) == cursor.getInt(id_work_description)) {
+                                                                                masIdThemes2[lenMasIdThemes2] = userCursor.getInt(id_theme);
+                                                                                lenMasIdThemes2++;
+                                                                            }
+                                                                        } while (userCursor.moveToNext());
+                                                                    }
+                                                                    userCursor.close();
+
+                                                                    boolean coincide = false;
+                                                                    int partCoincide = 0;
+
+                                                                    if (lenMasIdThemes2 == lenMasIdThemes) {
+                                                                        for (int i =0; i < lenMasIdThemes2; i++) {
+                                                                            for (int j = 0; j < lenMasIdThemes; j++) {
+                                                                                if (masIdThemes2[i] == masIdThemes[j]) {
+                                                                                    partCoincide++;
+                                                                                    break;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+
+                                                                    if (partCoincide == lenMasIdThemes2) {
+                                                                        coincide = true;
+                                                                    }
+
+                                                                    if (coincide) {
+                                                                        id_work_description = cursor.getInt(id_work_description);
+                                                                        noAppend = true;
+                                                                        break;
+                                                                    }
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        int id_WDescription = 0;
+
+                                                        if (!noAppend) {
+
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_TYPE_OF_WORK, item);
+                                                            cv.put(DatabaseHelper.COLUMN_ID_DISCIPLINE, id_discipline);
+                                                            cv.put(DatabaseHelper.COLUMN_ID_AUTHOR, id_author);
+                                                            cv.put(DatabaseHelper.COLUMN_TASK_NUMBER, Integer.parseInt(editTextNumberOfTask.getText().toString()));
+                                                            cv.put(DatabaseHelper.COLUMN_OPTION_NUMBER, -1);
+                                                            cv.put(DatabaseHelper.COLUMN_SECTION_NUMBER, -1);
+                                                            cv.put(DatabaseHelper.COLUMN_CHAPTER_NUMBER, Integer.parseInt(editTextChapter.getText().toString()));
+                                                            cv.put(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER, Integer.parseInt(editTextParagraph.getText().toString()));
+                                                            cv.put(DatabaseHelper.COLUMN_PUBLICATION_NUMBER, -1);
+                                                            db.insert(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, cv);
+
+                                                            userCursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                            if (userCursor.moveToLast()) {
+                                                                int idNew_work_description = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                                idNew_work_description = userCursor.getInt(idNew_work_description);
+
+                                                                for (int i = 0; i < lenMasIdThemes; i++) {
+                                                                    cv = new ContentValues();
+                                                                    cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, idNew_work_description);
+                                                                    cv.put(DatabaseHelper.COLUMN_ID_THEME, masIdThemes[i]);
+                                                                    db.insert(DatabaseHelper.TABLE_THEME_OF_WORK, null, cv);
+                                                                }
+
+                                                                id_WDescription = idNew_work_description;
+
+                                                            }
+
+                                                            userCursor.close();
+
+                                                        } else {
+
+                                                            id_WDescription = id_work_description;
+
+                                                        }
+
+                                                        Bundle arguments = getIntent().getExtras();
+                                                        int id_user = arguments.getInt("id_user");
+
+                                                        Date currentDate = new Date();
+                                                        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+                                                        String dateText = dateFormat.format(currentDate);
+
+                                                        ContentValues cv = new ContentValues();
+                                                        cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, id_WDescription);
+                                                        cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
+                                                        cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
+                                                        cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+                                                        db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
+
+                                                        userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
+
+                                                        int id_user_work = 0;
+
+                                                        if (userCursor.moveToLast()) {
+                                                            id_user_work = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_USER_WORK);
+                                                            id_user_work = userCursor.getInt(id_user_work);
+                                                        }
+
+                                                        userCursor.close();
+                                                        db.close();
+
+
                                                         Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
+                                                        intent.putExtra("id_user", id_user);
+                                                        intent.putExtra("id_user_work", id_user_work);
                                                         startActivity(intent);
+
+
 
                                                     }
 
@@ -1413,16 +2084,350 @@ public class Download extends AppCompatActivity {
                                             }
                                             //---------------------------------------------------
 
+                                            //---------------------------------------------------
+
+                                            if (!autoCompleteThemeValue2.equals("")) {
+
+                                                noAppend = false;
+
+                                                cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                if (cursor.moveToFirst()) {
+                                                    int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                    do {
+                                                        if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                            noAppend = true;
+                                                            break;
+                                                        }
+                                                    } while (cursor.moveToNext());
+                                                }
+                                                cursor.close();
+
+                                                if (!noAppend) {
+                                                    ContentValues cv = new ContentValues();
+                                                    cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue2);
+                                                    db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                }
+
+                                            }
+                                            //---------------------------------------------------
+
+                                            //---------------------------------------------------
+
+                                            if (!autoCompleteThemeValue3.equals("")) {
+
+                                                noAppend = false;
+
+                                                cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                if (cursor.moveToFirst()) {
+                                                    int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                    do {
+                                                        if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                            noAppend = true;
+                                                            break;
+                                                        }
+                                                    } while (cursor.moveToNext());
+                                                }
+                                                cursor.close();
+
+                                                if (!noAppend) {
+                                                    ContentValues cv = new ContentValues();
+                                                    cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue3);
+                                                    db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                }
+
+                                            }
+                                            //---------------------------------------------------
+
+                                            //---------------------------------------------------
+
+                                            if (!autoCompleteThemeValue4.equals("")) {
+
+                                                noAppend = false;
+
+                                                cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                if (cursor.moveToFirst()) {
+                                                    int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                    do {
+                                                        if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                            noAppend = true;
+                                                            break;
+                                                        }
+                                                    } while (cursor.moveToNext());
+                                                }
+                                                cursor.close();
+
+                                                if (!noAppend) {
+                                                    ContentValues cv = new ContentValues();
+                                                    cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue4);
+                                                    db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                }
+
+                                            }
+                                            //---------------------------------------------------
+
+                                            //---------------------------------------------------
+
+                                            if (!autoCompleteThemeValue5.equals("")) {
+
+                                                noAppend = false;
+
+                                                cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                if (cursor.moveToFirst()) {
+                                                    int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                    do {
+                                                        if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                            noAppend = true;
+                                                            break;
+                                                        }
+                                                    } while (cursor.moveToNext());
+                                                }
+                                                cursor.close();
+
+                                                if (!noAppend) {
+                                                    ContentValues cv = new ContentValues();
+                                                    cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue5);
+                                                    db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                }
+
+                                            }
+                                            //---------------------------------------------------
+
+                                            //---------------------------------------------------
+
+
+                                            cursor = db.query(DatabaseHelper.TABLE_DISCIPLINES, null, null, null, null, null, null);
+
+                                            int id_discipline = 0;
+
+                                            if (cursor.moveToFirst()) {
+                                                id_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                int idName_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_DISCIPLINE);
+
+                                                do {
+                                                    if (cursor.getString(idName_discipline).equals(autoCompleteDisciplineValue)) {
+                                                        id_discipline = cursor.getInt(id_discipline);
+                                                        break;
+                                                    }
+                                                } while (cursor.moveToNext());
+                                            }
+                                            cursor.close();
+
+
+                                            cursor = db.query(DatabaseHelper.TABLE_AUTHORS, null, null, null, null, null, null);
+
+                                            int id_author = 0;
+
+                                            if (cursor.moveToFirst()) {
+                                                id_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                int idName_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_AUTHOR);
+
+                                                do {
+                                                    if (cursor.getString(idName_author).equals(autoCompleteAuthorValue)) {
+                                                        id_author = cursor.getInt(id_author);
+                                                        break;
+                                                    }
+                                                } while (cursor.moveToNext());
+                                            }
+                                            cursor.close();
+
+                                            int[] masIdThemes = new int[5];
+                                            int lenMasIdThemes = 0;
+
+                                            cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                            if (cursor.moveToFirst()) {
+                                                int id_theme = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                do {
+
+                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
+                                                        masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                        lenMasIdThemes++;
+                                                    }
+
+                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                        masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                        lenMasIdThemes++;
+                                                    }
+
+                                                    if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                        masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                        lenMasIdThemes++;
+                                                    }
+
+                                                    if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                        masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                        lenMasIdThemes++;
+                                                    }
+
+                                                    if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                        masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                        lenMasIdThemes++;
+                                                    }
+
+                                                } while (cursor.moveToNext());
+                                            }
+                                            cursor.close();
+
+
+                                            noAppend = false;
+
+                                            cursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                            int id_work_description = 0;
+
+                                            if (cursor.moveToFirst()) {
+                                                id_work_description = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                int idType_of_work = cursor.getColumnIndex(DatabaseHelper.COLUMN_TYPE_OF_WORK);
+                                                int id_discipline2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                int id_author2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+
+                                                do {
+                                                    if (cursor.getString(idType_of_work).equals(item) && cursor.getInt(id_discipline2) == id_discipline
+                                                            &&  cursor.getInt(id_author2) == id_author) {
+
+                                                        int[] masIdThemes2 = new int[5];
+                                                        int lenMasIdThemes2 = 0;
+
+                                                        userCursor = db.query(DatabaseHelper.TABLE_THEME_OF_WORK, null, null, null, null, null, null);
+
+                                                        if (userCursor.moveToFirst()) {
+                                                            int id_theme = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                            int id_workDescription = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+
+                                                            do {
+                                                                if (userCursor.getInt(id_workDescription) == cursor.getInt(id_work_description)) {
+                                                                    masIdThemes2[lenMasIdThemes2] = userCursor.getInt(id_theme);
+                                                                    lenMasIdThemes2++;
+                                                                }
+                                                            } while (userCursor.moveToNext());
+                                                        }
+                                                        userCursor.close();
+
+                                                        boolean coincide = false;
+                                                        int partCoincide = 0;
+
+                                                        if (lenMasIdThemes2 == lenMasIdThemes) {
+                                                            for (int i =0; i < lenMasIdThemes2; i++) {
+                                                                for (int j = 0; j < lenMasIdThemes; j++) {
+                                                                    if (masIdThemes2[i] == masIdThemes[j]) {
+                                                                        partCoincide++;
+                                                                        break;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+
+                                                        if (partCoincide == lenMasIdThemes2) {
+                                                            coincide = true;
+                                                        }
+
+                                                        if (coincide) {
+                                                            id_work_description = cursor.getInt(id_work_description);
+                                                            noAppend = true;
+                                                            break;
+                                                        }
+                                                    }
+                                                } while (cursor.moveToNext());
+                                            }
+                                            cursor.close();
+
+                                            int id_WDescription = 0;
+
+                                            if (!noAppend) {
+
+
+                                                ContentValues cv = new ContentValues();
+                                                cv.put(DatabaseHelper.COLUMN_TYPE_OF_WORK, item);
+                                                cv.put(DatabaseHelper.COLUMN_ID_DISCIPLINE, id_discipline);
+                                                cv.put(DatabaseHelper.COLUMN_ID_AUTHOR, id_author);
+                                                cv.put(DatabaseHelper.COLUMN_TASK_NUMBER, -1);
+                                                cv.put(DatabaseHelper.COLUMN_OPTION_NUMBER, -1);
+                                                cv.put(DatabaseHelper.COLUMN_SECTION_NUMBER, -1);
+                                                cv.put(DatabaseHelper.COLUMN_CHAPTER_NUMBER, -1);
+                                                cv.put(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER, -1);
+                                                cv.put(DatabaseHelper.COLUMN_PUBLICATION_NUMBER, -1);
+                                                db.insert(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, cv);
+
+                                                userCursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                if (userCursor.moveToLast()) {
+                                                    int idNew_work_description = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                    idNew_work_description = userCursor.getInt(idNew_work_description);
+
+                                                    for (int i = 0; i < lenMasIdThemes; i++) {
+                                                        cv = new ContentValues();
+                                                        cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, idNew_work_description);
+                                                        cv.put(DatabaseHelper.COLUMN_ID_THEME, masIdThemes[i]);
+                                                        db.insert(DatabaseHelper.TABLE_THEME_OF_WORK, null, cv);
+                                                    }
+
+                                                    id_WDescription = idNew_work_description;
+
+                                                }
+
+                                                userCursor.close();
+
+                                            } else {
+
+                                                id_WDescription = id_work_description;
+
+                                            }
+
+                                            Bundle arguments = getIntent().getExtras();
+                                            int id_user = arguments.getInt("id_user");
+
+                                            Date currentDate = new Date();
+                                            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+                                            String dateText = dateFormat.format(currentDate);
+
+                                            ContentValues cv = new ContentValues();
+                                            cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, id_WDescription);
+                                            cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
+                                            cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
+                                            cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+                                            db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
+
+                                            userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
+
+                                            int id_user_work = 0;
+
+                                            if (userCursor.moveToLast()) {
+                                                id_user_work = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_USER_WORK);
+                                                id_user_work = userCursor.getInt(id_user_work);
+                                            }
+
+                                            userCursor.close();
+                                            db.close();
+
+
                                             Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
+                                            intent.putExtra("id_user", id_user);
+                                            intent.putExtra("id_user_work", id_user_work);
                                             startActivity(intent);
 
                                         }
 
                                     }
 
+
+
+
+                                    }
+
                                 }
 
-                            }
+
 
                             if (!errorFlag) {
                                 error = "Что-то пошло не по плану:" + error;
@@ -1747,10 +2752,350 @@ public class Download extends AppCompatActivity {
                                                     }
                                                     //---------------------------------------------------
 
+                                                    //---------------------------------------------------
+
+                                                    if (!autoCompleteThemeValue2.equals("")) {
+
+                                                        noAppend = false;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                        if (cursor.moveToFirst()) {
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                            do {
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                                    noAppend = true;
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        if (!noAppend) {
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue2);
+                                                            db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                        }
+
+                                                    }
+                                                    //---------------------------------------------------
+
+                                                    //---------------------------------------------------
+
+                                                    if (!autoCompleteThemeValue3.equals("")) {
+
+                                                        noAppend = false;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                        if (cursor.moveToFirst()) {
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                            do {
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                                    noAppend = true;
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        if (!noAppend) {
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue3);
+                                                            db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                        }
+
+                                                    }
+                                                    //---------------------------------------------------
+
+                                                    //---------------------------------------------------
+
+                                                    if (!autoCompleteThemeValue4.equals("")) {
+
+                                                        noAppend = false;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                        if (cursor.moveToFirst()) {
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                            do {
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                                    noAppend = true;
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        if (!noAppend) {
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue4);
+                                                            db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                        }
+
+                                                    }
+                                                    //---------------------------------------------------
+
+                                                    //---------------------------------------------------
+
+                                                    if (!autoCompleteThemeValue5.equals("")) {
+
+                                                        noAppend = false;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                        if (cursor.moveToFirst()) {
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                            do {
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                                    noAppend = true;
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        if (!noAppend) {
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue5);
+                                                            db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                        }
+
+                                                    }
+                                                    //---------------------------------------------------
+
+                                                    //---------------------------------------------------
+
+
+                                                    cursor = db.query(DatabaseHelper.TABLE_DISCIPLINES, null, null, null, null, null, null);
+
+                                                    int id_discipline = 0;
+
+                                                    if (cursor.moveToFirst()) {
+                                                        id_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                        int idName_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_DISCIPLINE);
+
+                                                        do {
+                                                            if (cursor.getString(idName_discipline).equals(autoCompleteDisciplineValue)) {
+                                                                id_discipline = cursor.getInt(id_discipline);
+                                                                break;
+                                                            }
+                                                        } while (cursor.moveToNext());
+                                                    }
+                                                    cursor.close();
+
+
+                                                    cursor = db.query(DatabaseHelper.TABLE_AUTHORS, null, null, null, null, null, null);
+
+                                                    int id_author = 0;
+
+                                                    if (cursor.moveToFirst()) {
+                                                        id_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                        int idName_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_AUTHOR);
+
+                                                        do {
+                                                            if (cursor.getString(idName_author).equals(autoCompleteAuthorValue)) {
+                                                                id_author = cursor.getInt(id_author);
+                                                                break;
+                                                            }
+                                                        } while (cursor.moveToNext());
+                                                    }
+                                                    cursor.close();
+
+                                                    int[] masIdThemes = new int[5];
+                                                    int lenMasIdThemes = 0;
+
+                                                    cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                    if (cursor.moveToFirst()) {
+                                                        int id_theme = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                        int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                        do {
+
+                                                            if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
+                                                                masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                lenMasIdThemes++;
+                                                            }
+
+                                                            if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                                masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                lenMasIdThemes++;
+                                                            }
+
+                                                            if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                                masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                lenMasIdThemes++;
+                                                            }
+
+                                                            if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                                masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                lenMasIdThemes++;
+                                                            }
+
+                                                            if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                                masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                lenMasIdThemes++;
+                                                            }
+
+                                                        } while (cursor.moveToNext());
+                                                    }
+                                                    cursor.close();
+
+
+                                                    noAppend = false;
+
+                                                    cursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                    int id_work_description = 0;
+
+                                                    if (cursor.moveToFirst()) {
+                                                        id_work_description = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                        int idType_of_work = cursor.getColumnIndex(DatabaseHelper.COLUMN_TYPE_OF_WORK);
+                                                        int id_discipline2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                        int id_author2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                        int section_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_SECTION_NUMBER);
+                                                        int chapter_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_CHAPTER_NUMBER);
+                                                        int paragraph_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER);
+
+                                                        do {
+
+                                                            if (cursor.getString(idType_of_work).equals(item) && cursor.getInt(id_discipline2) == id_discipline
+                                                                    &&  cursor.getInt(id_author2) == id_author
+                                                                    &&  cursor.getInt(section_number) == Integer.parseInt(editTextTextSection.getText().toString())
+                                                                    &&  cursor.getInt(chapter_number) == Integer.parseInt(editTextChapter.getText().toString())
+                                                                    &&  cursor.getInt(paragraph_number) == Integer.parseInt(editTextParagraph.getText().toString())) {
+
+                                                                int[] masIdThemes2 = new int[5];
+                                                                int lenMasIdThemes2 = 0;
+
+                                                                userCursor = db.query(DatabaseHelper.TABLE_THEME_OF_WORK, null, null, null, null, null, null);
+
+                                                                if (userCursor.moveToFirst()) {
+                                                                    int id_theme = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                                    int id_workDescription = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+
+                                                                    do {
+                                                                        if (userCursor.getInt(id_workDescription) == cursor.getInt(id_work_description)) {
+                                                                            masIdThemes2[lenMasIdThemes2] = userCursor.getInt(id_theme);
+                                                                            lenMasIdThemes2++;
+                                                                        }
+                                                                    } while (userCursor.moveToNext());
+                                                                }
+                                                                userCursor.close();
+
+                                                                boolean coincide = false;
+                                                                int partCoincide = 0;
+
+                                                                if (lenMasIdThemes2 == lenMasIdThemes) {
+                                                                    for (int i =0; i < lenMasIdThemes2; i++) {
+                                                                        for (int j = 0; j < lenMasIdThemes; j++) {
+                                                                            if (masIdThemes2[i] == masIdThemes[j]) {
+                                                                                partCoincide++;
+                                                                                break;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+
+
+                                                                if (partCoincide == lenMasIdThemes2) {
+                                                                    coincide = true;
+                                                                }
+
+                                                                if (coincide) {
+                                                                    id_work_description = cursor.getInt(id_work_description);
+                                                                    noAppend = true;
+                                                                    break;
+                                                                }
+                                                            }
+                                                        } while (cursor.moveToNext());
+                                                    }
+                                                    cursor.close();
+
+                                                    int id_WDescription = 0;
+
+                                                    if (!noAppend) {
+
+                                                        ContentValues cv = new ContentValues();
+                                                        cv.put(DatabaseHelper.COLUMN_TYPE_OF_WORK, item);
+                                                        cv.put(DatabaseHelper.COLUMN_ID_DISCIPLINE, id_discipline);
+                                                        cv.put(DatabaseHelper.COLUMN_ID_AUTHOR, id_author);
+                                                        cv.put(DatabaseHelper.COLUMN_TASK_NUMBER, -1);
+                                                        cv.put(DatabaseHelper.COLUMN_OPTION_NUMBER, -1);
+                                                        cv.put(DatabaseHelper.COLUMN_SECTION_NUMBER, Integer.parseInt(editTextTextSection.getText().toString()));
+                                                        cv.put(DatabaseHelper.COLUMN_CHAPTER_NUMBER, Integer.parseInt(editTextChapter.getText().toString()));
+                                                        cv.put(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER, Integer.parseInt(editTextParagraph.getText().toString()));
+                                                        cv.put(DatabaseHelper.COLUMN_PUBLICATION_NUMBER, -1);
+                                                        db.insert(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, cv);
+
+                                                        userCursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                        if (userCursor.moveToLast()) {
+                                                            int idNew_work_description = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                            idNew_work_description = userCursor.getInt(idNew_work_description);
+
+                                                            for (int i = 0; i < lenMasIdThemes; i++) {
+                                                                cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, idNew_work_description);
+                                                                cv.put(DatabaseHelper.COLUMN_ID_THEME, masIdThemes[i]);
+                                                                db.insert(DatabaseHelper.TABLE_THEME_OF_WORK, null, cv);
+                                                            }
+
+                                                            id_WDescription = idNew_work_description;
+
+                                                        }
+
+                                                        userCursor.close();
+
+                                                    } else {
+
+                                                        id_WDescription = id_work_description;
+
+                                                    }
+
+                                                    Bundle arguments = getIntent().getExtras();
+                                                    int id_user = arguments.getInt("id_user");
+
+                                                    Date currentDate = new Date();
+                                                    DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+                                                    String dateText = dateFormat.format(currentDate);
+
+                                                    ContentValues cv = new ContentValues();
+                                                    cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, id_WDescription);
+                                                    cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
+                                                    cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
+                                                    cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+                                                    db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
+
+                                                    userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
+
+                                                    int id_user_work = 0;
+
+                                                    if (userCursor.moveToLast()) {
+                                                        id_user_work = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_USER_WORK);
+                                                        id_user_work = userCursor.getInt(id_user_work);
+                                                    }
+
+                                                    userCursor.close();
+                                                    db.close();
+
+
                                                     Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
+                                                    intent.putExtra("id_user", id_user);
+                                                    intent.putExtra("id_user_work", id_user_work);
                                                     startActivity(intent);
 
                                                 }
+
+                                            }
+
+
+
 
                                             }
 
@@ -1760,7 +3105,7 @@ public class Download extends AppCompatActivity {
 
                                 }
 
-                            }
+
 
                             if (!errorFlag) {
                                 error = "Что-то пошло не по плану:" + error;
@@ -2110,8 +3455,346 @@ public class Download extends AppCompatActivity {
                                                         }
                                                         //---------------------------------------------------
 
+                                                        //---------------------------------------------------
+
+                                                        if (!autoCompleteThemeValue2.equals("")) {
+
+                                                            noAppend = false;
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                            if (cursor.moveToFirst()) {
+                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                do {
+                                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                                        noAppend = true;
+                                                                        break;
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+                                                            if (!noAppend) {
+                                                                ContentValues cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue2);
+                                                                db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                            }
+
+                                                        }
+                                                        //---------------------------------------------------
+
+                                                        //---------------------------------------------------
+
+                                                        if (!autoCompleteThemeValue3.equals("")) {
+
+                                                            noAppend = false;
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                            if (cursor.moveToFirst()) {
+                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                do {
+                                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                                        noAppend = true;
+                                                                        break;
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+                                                            if (!noAppend) {
+                                                                ContentValues cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue3);
+                                                                db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                            }
+
+                                                        }
+                                                        //---------------------------------------------------
+
+                                                        //---------------------------------------------------
+
+                                                        if (!autoCompleteThemeValue4.equals("")) {
+
+                                                            noAppend = false;
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                            if (cursor.moveToFirst()) {
+                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                do {
+                                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                                        noAppend = true;
+                                                                        break;
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+                                                            if (!noAppend) {
+                                                                ContentValues cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue4);
+                                                                db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                            }
+
+                                                        }
+                                                        //---------------------------------------------------
+
+                                                        //---------------------------------------------------
+
+                                                        if (!autoCompleteThemeValue5.equals("")) {
+
+                                                            noAppend = false;
+
+                                                            cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                            if (cursor.moveToFirst()) {
+                                                                int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                                do {
+                                                                    if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                                        noAppend = true;
+                                                                        break;
+                                                                    }
+                                                                } while (cursor.moveToNext());
+                                                            }
+                                                            cursor.close();
+
+                                                            if (!noAppend) {
+                                                                ContentValues cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue5);
+                                                                db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                            }
+
+                                                        }
+                                                        //---------------------------------------------------
+
+                                                        //---------------------------------------------------
+
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_DISCIPLINES, null, null, null, null, null, null);
+
+                                                        int id_discipline = 0;
+
+                                                        if (cursor.moveToFirst()) {
+                                                            id_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                            int idName_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_DISCIPLINE);
+
+                                                            do {
+                                                                if (cursor.getString(idName_discipline).equals(autoCompleteDisciplineValue)) {
+                                                                    id_discipline = cursor.getInt(id_discipline);
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_AUTHORS, null, null, null, null, null, null);
+
+                                                        int id_author = 0;
+
+                                                        if (cursor.moveToFirst()) {
+                                                            id_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                            int idName_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_AUTHOR);
+
+                                                            do {
+                                                                if (cursor.getString(idName_author).equals(autoCompleteAuthorValue)) {
+                                                                    id_author = cursor.getInt(id_author);
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        int[] masIdThemes = new int[5];
+                                                        int lenMasIdThemes = 0;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                        if (cursor.moveToFirst()) {
+                                                            int id_theme = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                            do {
+
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
+                                                                    masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                    lenMasIdThemes++;
+                                                                }
+
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                                    masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                    lenMasIdThemes++;
+                                                                }
+
+                                                                if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                                    masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                    lenMasIdThemes++;
+                                                                }
+
+                                                                if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                                    masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                    lenMasIdThemes++;
+                                                                }
+
+                                                                if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                                    masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                    lenMasIdThemes++;
+                                                                }
+
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+
+                                                        noAppend = false;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                        int id_work_description = 0;
+
+                                                        if (cursor.moveToFirst()) {
+                                                            id_work_description = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                            int idType_of_work = cursor.getColumnIndex(DatabaseHelper.COLUMN_TYPE_OF_WORK);
+                                                            int id_discipline2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                            int id_author2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                            int idTask_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_TASK_NUMBER);
+                                                            int section_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_SECTION_NUMBER);
+                                                            int paragraph_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER);
+                                                            int chapter_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_CHAPTER_NUMBER);
+
+                                                            do {
+
+                                                                if (cursor.getString(idType_of_work).equals(item) && cursor.getInt(id_discipline2) == id_discipline
+                                                                        &&  cursor.getInt(id_author2) == id_author
+                                                                        &&  cursor.getInt(idTask_number) == Integer.parseInt(editTextNumberOfTask.getText().toString())
+                                                                        &&  cursor.getInt(section_number) == Integer.parseInt(editTextTextSection.getText().toString())
+                                                                        &&  cursor.getInt(paragraph_number) == Integer.parseInt(editTextParagraph.getText().toString())
+                                                                        &&  cursor.getInt(chapter_number) == Integer.parseInt(editTextChapter.getText().toString())) {
+
+                                                                    int[] masIdThemes2 = new int[5];
+                                                                    int lenMasIdThemes2 = 0;
+
+                                                                    userCursor = db.query(DatabaseHelper.TABLE_THEME_OF_WORK, null, null, null, null, null, null);
+
+                                                                    if (userCursor.moveToFirst()) {
+                                                                        int id_theme = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                                        int id_workDescription = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+
+                                                                        do {
+                                                                            if (userCursor.getInt(id_workDescription) == cursor.getInt(id_work_description)) {
+                                                                                masIdThemes2[lenMasIdThemes2] = userCursor.getInt(id_theme);
+                                                                                lenMasIdThemes2++;
+                                                                            }
+                                                                        } while (userCursor.moveToNext());
+                                                                    }
+                                                                    userCursor.close();
+
+                                                                    boolean coincide = false;
+                                                                    int partCoincide = 0;
+
+                                                                    if (lenMasIdThemes2 == lenMasIdThemes) {
+                                                                        for (int i =0; i < lenMasIdThemes2; i++) {
+                                                                            for (int j = 0; j < lenMasIdThemes; j++) {
+                                                                                if (masIdThemes2[i] == masIdThemes[j]) {
+                                                                                    partCoincide++;
+                                                                                    break;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+
+
+                                                                    if (partCoincide == lenMasIdThemes2) {
+                                                                        coincide = true;
+                                                                    }
+
+                                                                    if (coincide) {
+                                                                        id_work_description = cursor.getInt(id_work_description);
+                                                                        noAppend = true;
+                                                                        break;
+                                                                    }
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        int id_WDescription = 0;
+
+                                                        if (!noAppend) {
+
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_TYPE_OF_WORK, item);
+                                                            cv.put(DatabaseHelper.COLUMN_ID_DISCIPLINE, id_discipline);
+                                                            cv.put(DatabaseHelper.COLUMN_ID_AUTHOR, id_author);
+                                                            cv.put(DatabaseHelper.COLUMN_TASK_NUMBER, Integer.parseInt(editTextNumberOfTask.getText().toString()));
+                                                            cv.put(DatabaseHelper.COLUMN_OPTION_NUMBER, -1);
+                                                            cv.put(DatabaseHelper.COLUMN_SECTION_NUMBER, Integer.parseInt(editTextTextSection.getText().toString()));
+                                                            cv.put(DatabaseHelper.COLUMN_CHAPTER_NUMBER, Integer.parseInt(editTextChapter.getText().toString()));
+                                                            cv.put(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER, Integer.parseInt(editTextParagraph.getText().toString()));
+                                                            cv.put(DatabaseHelper.COLUMN_PUBLICATION_NUMBER, -1);
+                                                            db.insert(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, cv);
+
+                                                            userCursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                            if (userCursor.moveToLast()) {
+                                                                int idNew_work_description = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                                idNew_work_description = userCursor.getInt(idNew_work_description);
+
+                                                                for (int i = 0; i < lenMasIdThemes; i++) {
+                                                                    cv = new ContentValues();
+                                                                    cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, idNew_work_description);
+                                                                    cv.put(DatabaseHelper.COLUMN_ID_THEME, masIdThemes[i]);
+                                                                    db.insert(DatabaseHelper.TABLE_THEME_OF_WORK, null, cv);
+                                                                }
+
+                                                                id_WDescription = idNew_work_description;
+
+                                                            }
+
+                                                            userCursor.close();
+
+                                                        } else {
+
+                                                            id_WDescription = id_work_description;
+
+                                                        }
+
+                                                        Bundle arguments = getIntent().getExtras();
+                                                        int id_user = arguments.getInt("id_user");
+
+                                                        Date currentDate = new Date();
+                                                        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+                                                        String dateText = dateFormat.format(currentDate);
+
+                                                        ContentValues cv = new ContentValues();
+                                                        cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, id_WDescription);
+                                                        cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
+                                                        cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
+                                                        cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+                                                        db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
+
+                                                        userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
+
+                                                        int id_user_work = 0;
+
+                                                        if (userCursor.moveToLast()) {
+                                                            id_user_work = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_USER_WORK);
+                                                            id_user_work = userCursor.getInt(id_user_work);
+                                                        }
+
+                                                        userCursor.close();
+                                                        db.close();
+
+
                                                         Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
+                                                        intent.putExtra("id_user", id_user);
+                                                        intent.putExtra("id_user_work", id_user_work);
                                                         startActivity(intent);
+
 
                                                     }
 
@@ -2463,8 +4146,346 @@ public class Download extends AppCompatActivity {
                                                     }
                                                     //---------------------------------------------------
 
+                                                    //---------------------------------------------------
+
+                                                    if (!autoCompleteThemeValue2.equals("")) {
+
+                                                        noAppend = false;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                        if (cursor.moveToFirst()) {
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                            do {
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                                    noAppend = true;
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        if (!noAppend) {
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue2);
+                                                            db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                        }
+
+                                                    }
+                                                    //---------------------------------------------------
+
+                                                    //---------------------------------------------------
+
+                                                    if (!autoCompleteThemeValue3.equals("")) {
+
+                                                        noAppend = false;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                        if (cursor.moveToFirst()) {
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                            do {
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                                    noAppend = true;
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        if (!noAppend) {
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue3);
+                                                            db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                        }
+
+                                                    }
+                                                    //---------------------------------------------------
+
+                                                    //---------------------------------------------------
+
+                                                    if (!autoCompleteThemeValue4.equals("")) {
+
+                                                        noAppend = false;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                        if (cursor.moveToFirst()) {
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                            do {
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                                    noAppend = true;
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        if (!noAppend) {
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue4);
+                                                            db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                        }
+
+                                                    }
+                                                    //---------------------------------------------------
+
+                                                    //---------------------------------------------------
+
+                                                    if (!autoCompleteThemeValue5.equals("")) {
+
+                                                        noAppend = false;
+
+                                                        cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                        if (cursor.moveToFirst()) {
+                                                            int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                            do {
+                                                                if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                                    noAppend = true;
+                                                                    break;
+                                                                }
+                                                            } while (cursor.moveToNext());
+                                                        }
+                                                        cursor.close();
+
+                                                        if (!noAppend) {
+                                                            ContentValues cv = new ContentValues();
+                                                            cv.put(DatabaseHelper.COLUMN_THEME, autoCompleteThemeValue5);
+                                                            db.insert(DatabaseHelper.TABLE_THEMES, null, cv);
+                                                        }
+
+                                                    }
+                                                    //---------------------------------------------------
+
+                                                    //---------------------------------------------------
+
+
+                                                    cursor = db.query(DatabaseHelper.TABLE_DISCIPLINES, null, null, null, null, null, null);
+
+                                                    int id_discipline = 0;
+
+                                                    if (cursor.moveToFirst()) {
+                                                        id_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                        int idName_discipline = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_DISCIPLINE);
+
+                                                        do {
+                                                            if (cursor.getString(idName_discipline).equals(autoCompleteDisciplineValue)) {
+                                                                id_discipline = cursor.getInt(id_discipline);
+                                                                break;
+                                                            }
+                                                        } while (cursor.moveToNext());
+                                                    }
+                                                    cursor.close();
+
+
+                                                    cursor = db.query(DatabaseHelper.TABLE_AUTHORS, null, null, null, null, null, null);
+
+                                                    int id_author = 0;
+
+                                                    if (cursor.moveToFirst()) {
+                                                        id_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                        int idName_author = cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME_AUTHOR);
+
+                                                        do {
+                                                            if (cursor.getString(idName_author).equals(autoCompleteAuthorValue)) {
+                                                                id_author = cursor.getInt(id_author);
+                                                                break;
+                                                            }
+                                                        } while (cursor.moveToNext());
+                                                    }
+                                                    cursor.close();
+
+                                                    int[] masIdThemes = new int[5];
+                                                    int lenMasIdThemes = 0;
+
+                                                    cursor = db.query(DatabaseHelper.TABLE_THEMES, null, null, null, null, null, null);
+
+                                                    if (cursor.moveToFirst()) {
+                                                        int id_theme = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                        int idNameTheme = cursor.getColumnIndex(DatabaseHelper.COLUMN_THEME);
+
+                                                        do {
+
+                                                            if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue)) {
+                                                                masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                lenMasIdThemes++;
+                                                            }
+
+                                                            if (cursor.getString(idNameTheme).equals(autoCompleteThemeValue2)) {
+                                                                masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                lenMasIdThemes++;
+                                                            }
+
+                                                            if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue3)) {
+                                                                masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                lenMasIdThemes++;
+                                                            }
+
+                                                            if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue4)) {
+                                                                masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                lenMasIdThemes++;
+                                                            }
+
+                                                            if ( cursor.getString(idNameTheme).equals(autoCompleteThemeValue5)) {
+                                                                masIdThemes[lenMasIdThemes] = cursor.getInt(id_theme);
+                                                                lenMasIdThemes++;
+                                                            }
+
+                                                        } while (cursor.moveToNext());
+                                                    }
+                                                    cursor.close();
+
+
+                                                    noAppend = false;
+
+                                                    cursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                    int id_work_description = 0;
+
+                                                    if (cursor.moveToFirst()) {
+                                                        id_work_description = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                        int idType_of_work = cursor.getColumnIndex(DatabaseHelper.COLUMN_TYPE_OF_WORK);
+                                                        int id_discipline2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_DISCIPLINE);
+                                                        int id_author2 = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID_AUTHOR);
+                                                        int section_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_SECTION_NUMBER);
+                                                        int chapter_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_CHAPTER_NUMBER);
+                                                        int paragraph_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER);
+                                                        int publication_number = cursor.getColumnIndex(DatabaseHelper.COLUMN_PUBLICATION_NUMBER);
+
+                                                        do {
+
+                                                            if (cursor.getString(idType_of_work).equals(item) && cursor.getInt(id_discipline2) == id_discipline
+                                                                    &&  cursor.getInt(id_author2) == id_author
+                                                                    &&  cursor.getInt(section_number) == Integer.parseInt(editTextTextSection.getText().toString())
+                                                                    &&  cursor.getInt(chapter_number) == Integer.parseInt(editTextChapter.getText().toString())
+                                                                    &&  cursor.getInt(paragraph_number) == Integer.parseInt(editTextParagraph.getText().toString())
+                                                                    &&  cursor.getInt(publication_number) == Integer.parseInt(editTextNumberOfPublication.getText().toString())) {
+
+                                                                int[] masIdThemes2 = new int[5];
+                                                                int lenMasIdThemes2 = 0;
+
+                                                                userCursor = db.query(DatabaseHelper.TABLE_THEME_OF_WORK, null, null, null, null, null, null);
+
+                                                                if (userCursor.moveToFirst()) {
+                                                                    int id_theme = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_THEME);
+                                                                    int id_workDescription = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+
+                                                                    do {
+                                                                        if (userCursor.getInt(id_workDescription) == cursor.getInt(id_work_description)) {
+                                                                            masIdThemes2[lenMasIdThemes2] = userCursor.getInt(id_theme);
+                                                                            lenMasIdThemes2++;
+                                                                        }
+                                                                    } while (userCursor.moveToNext());
+                                                                }
+                                                                userCursor.close();
+
+                                                                boolean coincide = false;
+                                                                int partCoincide = 0;
+
+                                                                if (lenMasIdThemes2 == lenMasIdThemes) {
+                                                                    for (int i =0; i < lenMasIdThemes2; i++) {
+                                                                        for (int j = 0; j < lenMasIdThemes; j++) {
+                                                                            if (masIdThemes2[i] == masIdThemes[j]) {
+                                                                                partCoincide++;
+                                                                                break;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+
+
+                                                                if (partCoincide == lenMasIdThemes2) {
+                                                                    coincide = true;
+                                                                }
+
+                                                                if (coincide) {
+                                                                    id_work_description = cursor.getInt(id_work_description);
+                                                                    noAppend = true;
+                                                                    break;
+                                                                }
+                                                            }
+                                                        } while (cursor.moveToNext());
+                                                    }
+                                                    cursor.close();
+
+                                                    int id_WDescription = 0;
+
+                                                    if (!noAppend) {
+
+                                                        ContentValues cv = new ContentValues();
+                                                        cv.put(DatabaseHelper.COLUMN_TYPE_OF_WORK, item);
+                                                        cv.put(DatabaseHelper.COLUMN_ID_DISCIPLINE, id_discipline);
+                                                        cv.put(DatabaseHelper.COLUMN_ID_AUTHOR, id_author);
+                                                        cv.put(DatabaseHelper.COLUMN_TASK_NUMBER, -1);
+                                                        cv.put(DatabaseHelper.COLUMN_OPTION_NUMBER, -1);
+                                                        cv.put(DatabaseHelper.COLUMN_SECTION_NUMBER, Integer.parseInt(editTextTextSection.getText().toString()));
+                                                        cv.put(DatabaseHelper.COLUMN_CHAPTER_NUMBER, Integer.parseInt(editTextChapter.getText().toString()));
+                                                        cv.put(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER, Integer.parseInt(editTextParagraph.getText().toString()));
+                                                        cv.put(DatabaseHelper.COLUMN_PUBLICATION_NUMBER, Integer.parseInt(editTextNumberOfPublication.getText().toString()));
+                                                        db.insert(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, cv);
+
+                                                        userCursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
+
+                                                        if (userCursor.moveToLast()) {
+                                                            int idNew_work_description = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION);
+                                                            idNew_work_description = userCursor.getInt(idNew_work_description);
+
+                                                            for (int i = 0; i < lenMasIdThemes; i++) {
+                                                                cv = new ContentValues();
+                                                                cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, idNew_work_description);
+                                                                cv.put(DatabaseHelper.COLUMN_ID_THEME, masIdThemes[i]);
+                                                                db.insert(DatabaseHelper.TABLE_THEME_OF_WORK, null, cv);
+                                                            }
+
+                                                            id_WDescription = idNew_work_description;
+
+                                                        }
+
+                                                        userCursor.close();
+
+                                                    } else {
+
+                                                        id_WDescription = id_work_description;
+
+                                                    }
+
+                                                    Bundle arguments = getIntent().getExtras();
+                                                    int id_user = arguments.getInt("id_user");
+
+                                                    Date currentDate = new Date();
+                                                    DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+                                                    String dateText = dateFormat.format(currentDate);
+
+                                                    ContentValues cv = new ContentValues();
+                                                    cv.put(DatabaseHelper.COLUMN_ID_WORK_DESCRIPTION, id_WDescription);
+                                                    cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
+                                                    cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
+                                                    cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+                                                    db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
+
+                                                    userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
+
+                                                    int id_user_work = 0;
+
+                                                    if (userCursor.moveToLast()) {
+                                                        id_user_work = userCursor.getColumnIndex(DatabaseHelper.COLUMN_ID_USER_WORK);
+                                                        id_user_work = userCursor.getInt(id_user_work);
+                                                    }
+
+                                                    userCursor.close();
+                                                    db.close();
+
+
                                                     Intent intent = new Intent(getApplicationContext(), InformationAboutTheSolution.class);
+                                                    intent.putExtra("id_user", id_user);
+                                                    intent.putExtra("id_user_work", id_user_work);
                                                     startActivity(intent);
+
 
                                                 }
 

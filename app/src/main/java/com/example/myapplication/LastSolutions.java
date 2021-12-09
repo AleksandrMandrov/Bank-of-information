@@ -18,7 +18,11 @@ public class LastSolutions extends AppCompatActivity {
     }
 
     public void moveToDownload(View view) {
+        Bundle arguments = getIntent().getExtras();
+        int id_user = arguments.getInt("id_user");
+
         Intent intent = new Intent(this, Download.class);
+        intent.putExtra("id_user", id_user);
         startActivity(intent);
     }
 
