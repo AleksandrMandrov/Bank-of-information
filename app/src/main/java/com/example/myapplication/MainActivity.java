@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.open();
+
+        loginEmail.setText("");
+        password.setText("");
     }
 
     public void moveToRegistration(View view) {

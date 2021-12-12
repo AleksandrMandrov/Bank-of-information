@@ -11,100 +11,115 @@
         android:id="@+id/profile1"
         android:layout_width="122dp"
         android:layout_height="122dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
+        app:srcCompat="@drawable/rick"
+        tools:srcCompat="@drawable/rick" />
 
     <TextView
         android:id="@+id/name9"
         android:layout_width="98dp"
         android:layout_height="34dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:text="Имя пользователя:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/profile1"
+        app:layout_constraintTop_toTopOf="@+id/profile1" />
 
     <TextView
-        android:id="@+id/name10"
+        android:id="@+id/nameProfile"
         android:layout_width="151dp"
         android:layout_height="34dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="Здесь имя пользователя"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/name9"
+        app:layout_constraintTop_toTopOf="@+id/name9" />
 
     <TextView
         android:id="@+id/email11"
         android:layout_width="98dp"
         android:layout_height="38dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="Электронная почта:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/profile1"
+        app:layout_constraintTop_toBottomOf="@+id/name9" />
 
     <TextView
-        android:id="@+id/email12"
+        android:id="@+id/emailProfile"
         android:layout_width="150dp"
         android:layout_height="39dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="Здесь почта пользователя"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.996"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/email11"
+        app:layout_constraintStart_toEndOf="@+id/email11"
+        app:layout_constraintTop_toTopOf="@+id/email11" />
 
     <Button
         android:id="@+id/red8"
         android:layout_width="128dp"
         android:layout_height="38dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="16dp"
         android:text="Редактировать"
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/list15" />
 
     <TextView
         android:id="@+id/grade3"
         android:layout_width="235dp"
         android:layout_height="46dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Оценка работ пользователя:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/profile1" />
 
     <TextView
         android:id="@+id/grade14"
         android:layout_width="144dp"
         android:layout_height="45dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginStart="8dp"
         android:text="5 из 5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/grade3"
+        app:layout_constraintStart_toEndOf="@+id/grade3"
+        app:layout_constraintTop_toTopOf="@+id/grade3" />
 
     <TextView
         android:id="@+id/list15"
-        android:layout_width="349dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="248dp"
-        android:text="Список работ пользователя:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
+        android:layout_width="139dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="количество работ:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/grade3" />
+
+    <TextView
+        android:id="@+id/countWorks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/list15"
+        app:layout_constraintStart_toEndOf="@+id/list15"
+        app:layout_constraintTop_toTopOf="@+id/list15" />
+
+    <TextView
+        android:id="@+id/exit"
+        android:layout_width="50dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Выход"
+        android:textColor="#F44336"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

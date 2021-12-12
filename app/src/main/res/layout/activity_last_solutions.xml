@@ -1,83 +1,379 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".LastSolutions"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
 
-    <ListView
-        android:id="@+id/list2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="64dp"
+        android:minHeight="800dp">
 
-    <EditText
-        android:id="@+id/zapros3"
-        android:layout_width="293dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="148dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Введите запрос"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textErrorRequest3"
+            android:layout_width="115dp"
+            android:layout_height="58dp"
+            android:text="Вы не ввели дополнительный параметры"
+            android:textColor="?attr/colorError"
+            app:layout_constraintBottom_toBottomOf="@+id/textErrorRequest4"
+            app:layout_constraintEnd_toEndOf="@+id/textErrorRequest4"
+            app:layout_constraintStart_toStartOf="@+id/textErrorRequest4"
+            app:layout_constraintTop_toTopOf="@+id/textErrorRequest4" />
 
-    <ImageButton
-        android:id="@+id/poisk2"
-        android:layout_width="53dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="148dp"
-        android:onClick="moveToSearchingIn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.863"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_search" />
+        <TextView
+            android:id="@+id/textErrorRequest4"
+            android:layout_width="199dp"
+            android:layout_height="73dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:background="#A9FFCDD2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberOfTask" />
 
-    <Button
-        android:id="@+id/poisk6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:text="Расширенный поиск"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <AutoCompleteTextView
+            android:id="@+id/autoRequestText"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="Введите запрос"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile2" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="57dp"
-        android:layout_height="58dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="60dp"
-        android:clickable="true"
-        android:onClick="moveToDownload"
+        <ListView
+            android:id="@+id/list2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/poisk2"
+            android:layout_width="53dp"
+            android:layout_height="48dp"
+            android:onClick="moveToSearchingIn"
+            app:layout_constraintBottom_toBottomOf="@+id/autoRequestText"
+            app:layout_constraintStart_toEndOf="@+id/autoRequestText"
+            app:layout_constraintTop_toTopOf="@+id/autoRequestText"
+            app:srcCompat="@android:drawable/ic_menu_search" />
+
+        <Button
+            android:id="@+id/btnAdvancedSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Расширенный поиск"
+            app:layout_constraintStart_toStartOf="@+id/autoRequestText"
+            app:layout_constraintTop_toBottomOf="@+id/autoRequestText" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="57dp"
+            android:layout_height="58dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="64dp"
+            android:clickable="true"
+            android:onClick="moveToDownload"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <ImageButton
+            android:id="@+id/profile2"
+            android:layout_width="116dp"
+            android:layout_height="109dp"
+            android:layout_marginTop="16dp"
+            android:onClick="moveToUsersIn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars[2]" />
+
+        <TextView
+            android:id="@+id/textErrorRequest1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вы не ввели запрос"
+            android:textColor="?attr/colorError"
+            app:layout_constraintBottom_toBottomOf="@+id/textErrorRequest2"
+            app:layout_constraintEnd_toEndOf="@+id/textErrorRequest2"
+            app:layout_constraintStart_toStartOf="@+id/textErrorRequest2"
+            app:layout_constraintTop_toTopOf="@+id/textErrorRequest2" />
+
+        <TextView
+            android:id="@+id/textErrorRequest2"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="#A9FFCDD2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnAdvancedSearch" /><![CDATA[
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-    <ImageButton
-        android:id="@+id/profile2"
-        android:layout_width="116dp"
-        android:layout_height="109dp"
-        android:layout_marginTop="16dp"
-        android:onClick="moveToUsersIn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars[2]" />
-    app:layout_constraintTop_toBottomOf="@+id/textView2"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+        ]]>
+
+        <TextView
+            android:id="@+id/descriptionDiscipline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Дисциплина"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteDiscipline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteDiscipline" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteDiscipline"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:completionThreshold="0"
+            android:text=""
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textErrorRequest1" />
+
+        <TextView
+            android:id="@+id/descriptionAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Автор/Преподаватель"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteAuthor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteAuthor" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteAuthor"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:completionThreshold="0"
+            android:text=""
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteDiscipline"
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteDiscipline" />
+
+        <TextView
+            android:id="@+id/descriptionTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Тема"
+            app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTheme"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:completionThreshold="0"
+            android:text=""
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteAuthor" />
+
+        <TextView
+            android:id="@+id/descriptionSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Раздел"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTextSection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextTextSection" />
+
+        <EditText
+            android:id="@+id/editTextTextSection"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteTheme" />
+
+        <TextView
+            android:id="@+id/descriptionChapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Глава"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextChapter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextChapter" />
+
+        <EditText
+            android:id="@+id/editTextChapter"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextSection" />
+
+        <TextView
+            android:id="@+id/descriptionParagraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="Параграф"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextParagraph"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextParagraph" />
+
+        <EditText
+            android:id="@+id/editTextParagraph"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/editTextChapter" />
+
+        <TextView
+            android:id="@+id/descriptionNumberOfPublication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="№ издания"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextNumberOfPublication"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextNumberOfPublication" />
+
+        <EditText
+            android:id="@+id/editTextNumberOfPublication"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/editTextParagraph" />
+
+        <TextView
+            android:id="@+id/descriptionNumberOfVariant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="№ варианта"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextNumberOfVariant"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextNumberOfVariant" />
+
+        <EditText
+            android:id="@+id/editTextNumberOfVariant"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberOfPublication" />
+
+        <TextView
+            android:id="@+id/descriptionNumberOfTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingEnd="8dp"
+            android:text="№ задания"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextNumberOfTask"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextNumberOfTask" />
+
+        <EditText
+            android:id="@+id/editTextNumberOfTask"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/autoCompleteTheme"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberOfVariant" />
+
+
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#A9FFCDD2"
+            android:textColor="?attr/colorError"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="950dp" />
+
+        <Button
+            android:id="@+id/btnSuperSearch"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:onClick="btnSuperSearchClick"
+            android:text="Поиск с дополнительными параметрами"
+            app:layout_constraintStart_toStartOf="@+id/descriptionNumberOfTask"
+            app:layout_constraintTop_toBottomOf="@+id/textErrorRequest4" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnSuperSearch"
+            tools:layout_editor_absoluteX="114dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

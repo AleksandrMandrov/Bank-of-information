@@ -70,7 +70,14 @@ class DatabaseHelper extends SQLiteOpenHelper {
     //COLUMN_ID_USER_WORK = "_id_user_work";
     //COLUMN_ID_USER = "_id_user";    // id пользователя, который создал этот комментарий
     static final String COLUMN_COMMENT_TEXT = "comment_text";
-    static final String COLUMN_SCORE = "score";
+    static final String COLUMN_TIME_COMMENT_CREATION = "time_comment_creation";
+
+    static final String TABLE_SCORE = "_id_score"; // таблица с оценкой работы в бд
+    static final String COLUMN_ID_SCORE = "_id_comment";
+    //COLUMN_ID_USER_WORK = "_id_user_work";
+    //COLUMN_ID_USER = "_id_user";    // id пользователя, который оценил работу
+    static final String COLUMN_SCORE_USER = "score_user";
+
 
     private Context myContext;
 

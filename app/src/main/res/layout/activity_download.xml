@@ -393,20 +393,21 @@
             android:layout_width="217dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="45dp"
             android:layout_marginBottom="8dp"
             android:text="Прикрепить"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/editTextDecision"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionNumberOfTask" />
+            app:layout_constraintTop_toBottomOf="@+id/descriptionNumberOfTask"
+            app:layout_constraintVertical_bias="0.119" />
 
         <EditText
             android:id="@+id/editTextDecision"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:background="@android:drawable/editbox_dropdown_light_frame"
             android:ems="10"
@@ -415,22 +416,9 @@
             android:padding="15dp"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnFileAttaching" />
-
-        <TextView
-            android:id="@+id/textViewLink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="Ссылка"
-            app:layout_constraintBottom_toBottomOf="@+id/btnFileAttaching"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.226"
-            app:layout_constraintStart_toEndOf="@+id/btnFileAttaching"
-            app:layout_constraintTop_toTopOf="@+id/btnFileAttaching"
-            app:layout_constraintVertical_bias="0.488" />
+            app:layout_constraintTop_toBottomOf="@+id/imageForDownload" />
 
         <Button
             android:id="@+id/btnCreatingSolution"
@@ -548,6 +536,19 @@
             app:layout_constraintStart_toEndOf="@+id/autoCompleteTheme5"
             app:layout_constraintTop_toTopOf="@+id/autoCompleteTheme5"
             app:srcCompat="@drawable/xtheme" />
+
+        <ImageView
+            android:id="@+id/imageForDownload"
+            android:layout_width="82dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnFileAttaching"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/btnFileAttaching"
+            app:layout_constraintTop_toTopOf="@+id/btnFileAttaching"
+            tools:srcCompat="@tools:sample/avatars" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

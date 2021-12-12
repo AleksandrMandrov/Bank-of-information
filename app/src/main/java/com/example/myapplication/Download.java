@@ -3,15 +3,24 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.Base64;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.regex.Matcher;
@@ -21,7 +30,6 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import android.database.Cursor;
@@ -34,6 +42,8 @@ import java.util.Locale;
 
 
 public class Download extends AppCompatActivity {
+
+    ImageView imageForDownload;
 
     TextView errorMessage;
 
@@ -99,10 +109,15 @@ public class Download extends AppCompatActivity {
         super.setTitle(titleId);
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download);
+
+        imageForDownload = (ImageView) findViewById(R.id.imageForDownload);
 
         errorMessage = (TextView) findViewById(R.id.errorMessage);
 
@@ -256,10 +271,12 @@ public class Download extends AppCompatActivity {
         deleteTheme4.setVisibility(View.GONE);
         deleteTheme5.setVisibility(View.GONE);
 
+        imageForDownload.setVisibility(View.GONE);
+
         //прикрепление пдф
 
         Button buttonPick = (Button)findViewById(R.id.btnFileAttaching);
-        textFile = (TextView)findViewById(R.id.textViewLink);
+       // textFile = (TextView)findViewById(R.id.textViewLink);
 
         buttonPick.setOnClickListener(new Button.OnClickListener(){
 
@@ -267,11 +284,11 @@ public class Download extends AppCompatActivity {
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
 
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("file/.pdf");
-                startActivityForResult(intent,PICKFILE_RESULT_CODE);
-
+                Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(pickPhoto , 1);//one can be replaced with any action code
             }});
+
 
         typeOfWork = (Spinner) findViewById(R.id.typeOfWork);
 
@@ -434,6 +451,8 @@ public class Download extends AppCompatActivity {
 
                     }
                 });
+
+//                textFile.setHint("");
 
                 if (item.equals("Контрольная работа") || item.equals("Тест") || item.equals("Сессия") || item.equals("Лабораторные работы")) {
 
@@ -1043,6 +1062,7 @@ public class Download extends AppCompatActivity {
                                                                 cv.put(DatabaseHelper.COLUMN_CHAPTER_NUMBER, -1);
                                                                 cv.put(DatabaseHelper.COLUMN_PARAGRAPH_NUMBER, -1);
                                                                 cv.put(DatabaseHelper.COLUMN_PUBLICATION_NUMBER, -1);
+
                                                                 db.insert(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, cv);
 
                                                                 userCursor = db.query(DatabaseHelper.TABLE_WORK_DESCRIPTION, null, null, null, null, null, null);
@@ -1083,6 +1103,29 @@ public class Download extends AppCompatActivity {
                                                             cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
                                                             cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
                                                             cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+
+                                                            if(imageForDownload.getVisibility() == View.VISIBLE) {
+
+                                                                BitmapDrawable drawable = (BitmapDrawable) imageForDownload.getDrawable();
+                                                                Bitmap bitmap = drawable.getBitmap();
+
+                                                                // Записываем изображение в поток байтов.
+                                                                // При этом изображение можно сжать и / или перекодировать в другой формат.
+                                                                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                                                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+
+                                                                // Получаем изображение из потока в виде байтов
+                                                                byte[] bytes = byteArrayOutputStream.toByteArray();
+
+                                                                // Кодируем байты в строку Base64 и возвращаем
+                                                                String fileForDownload =  Base64.encodeToString(bytes, Base64.DEFAULT);
+
+                                                                cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, fileForDownload);
+                                                            } else {
+                                                                cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, "nine");
+                                                            }
+
+
                                                             db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
 
                                                             userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
@@ -1760,6 +1803,28 @@ public class Download extends AppCompatActivity {
                                                         cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
                                                         cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
                                                         cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+
+                                                        if(imageForDownload.getVisibility() == View.VISIBLE) {
+
+                                                            BitmapDrawable drawable = (BitmapDrawable) imageForDownload.getDrawable();
+                                                            Bitmap bitmap = drawable.getBitmap();
+
+                                                            // Записываем изображение в поток байтов.
+                                                            // При этом изображение можно сжать и / или перекодировать в другой формат.
+                                                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                                            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+
+                                                            // Получаем изображение из потока в виде байтов
+                                                            byte[] bytes = byteArrayOutputStream.toByteArray();
+
+                                                            // Кодируем байты в строку Base64 и возвращаем
+                                                            String fileForDownload =  Base64.encodeToString(bytes, Base64.DEFAULT);
+
+                                                            cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, fileForDownload);
+                                                        } else {
+                                                            cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, "nine");
+                                                        }
+
                                                         db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
 
                                                         userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
@@ -2389,6 +2454,28 @@ public class Download extends AppCompatActivity {
                                             cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
                                             cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
                                             cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+
+                                            if(imageForDownload.getVisibility() == View.VISIBLE) {
+
+                                                BitmapDrawable drawable = (BitmapDrawable) imageForDownload.getDrawable();
+                                                Bitmap bitmap = drawable.getBitmap();
+
+                                                // Записываем изображение в поток байтов.
+                                                // При этом изображение можно сжать и / или перекодировать в другой формат.
+                                                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+
+                                                // Получаем изображение из потока в виде байтов
+                                                byte[] bytes = byteArrayOutputStream.toByteArray();
+
+                                                // Кодируем байты в строку Base64 и возвращаем
+                                                String fileForDownload =  Base64.encodeToString(bytes, Base64.DEFAULT);
+
+                                                cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, fileForDownload);
+                                            } else {
+                                                cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, "nine");
+                                            }
+
                                             db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
 
                                             userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
@@ -3059,6 +3146,28 @@ public class Download extends AppCompatActivity {
                                                     cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
                                                     cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
                                                     cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+
+                                                    if(imageForDownload.getVisibility() == View.VISIBLE) {
+
+                                                        BitmapDrawable drawable = (BitmapDrawable) imageForDownload.getDrawable();
+                                                        Bitmap bitmap = drawable.getBitmap();
+
+                                                        // Записываем изображение в поток байтов.
+                                                        // При этом изображение можно сжать и / или перекодировать в другой формат.
+                                                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+
+                                                        // Получаем изображение из потока в виде байтов
+                                                        byte[] bytes = byteArrayOutputStream.toByteArray();
+
+                                                        // Кодируем байты в строку Base64 и возвращаем
+                                                        String fileForDownload =  Base64.encodeToString(bytes, Base64.DEFAULT);
+
+                                                        cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, fileForDownload);
+                                                    } else {
+                                                        cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, "nine");
+                                                    }
+
                                                     db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
 
                                                     userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
@@ -3760,6 +3869,28 @@ public class Download extends AppCompatActivity {
                                                         cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
                                                         cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
                                                         cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+
+                                                        if(imageForDownload.getVisibility() == View.VISIBLE) {
+
+                                                            BitmapDrawable drawable = (BitmapDrawable) imageForDownload.getDrawable();
+                                                            Bitmap bitmap = drawable.getBitmap();
+
+                                                            // Записываем изображение в поток байтов.
+                                                            // При этом изображение можно сжать и / или перекодировать в другой формат.
+                                                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                                            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+
+                                                            // Получаем изображение из потока в виде байтов
+                                                            byte[] bytes = byteArrayOutputStream.toByteArray();
+
+                                                            // Кодируем байты в строку Base64 и возвращаем
+                                                            String fileForDownload =  Base64.encodeToString(bytes, Base64.DEFAULT);
+
+                                                            cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, fileForDownload);
+                                                        } else {
+                                                            cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, "nine");
+                                                        }
+
                                                         db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
 
                                                         userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
@@ -4447,6 +4578,28 @@ public class Download extends AppCompatActivity {
                                                     cv.put(DatabaseHelper.COLUMN_ID_USER, id_user);
                                                     cv.put(DatabaseHelper.COLUMN_TEXT_WORK, editTextDecisionValue);
                                                     cv.put(DatabaseHelper.COLUMN_TIME_OF_CREATION, dateText);
+
+                                                    if(imageForDownload.getVisibility() == View.VISIBLE) {
+
+                                                        BitmapDrawable drawable = (BitmapDrawable) imageForDownload.getDrawable();
+                                                        Bitmap bitmap = drawable.getBitmap();
+
+                                                        // Записываем изображение в поток байтов.
+                                                        // При этом изображение можно сжать и / или перекодировать в другой формат.
+                                                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+
+                                                        // Получаем изображение из потока в виде байтов
+                                                        byte[] bytes = byteArrayOutputStream.toByteArray();
+
+                                                        // Кодируем байты в строку Base64 и возвращаем
+                                                        String fileForDownload =  Base64.encodeToString(bytes, Base64.DEFAULT);
+
+                                                        cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, fileForDownload);
+                                                    } else {
+                                                        cv.put(DatabaseHelper.COLUMN_FILE_FROM_WORK, "nine");
+                                                    }
+
                                                     db.insert(DatabaseHelper.TABLE_USER_WORK, null, cv);
 
                                                     userCursor = db.query(DatabaseHelper.TABLE_USER_WORK, null, null, null, null, null, null);
@@ -4501,16 +4654,28 @@ public class Download extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
-        switch(requestCode){
-            case PICKFILE_RESULT_CODE:
-                if(resultCode==RESULT_OK){
-                    String FilePath = data.getData().getPath();
-                    textFile.setText(FilePath);
+    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+        switch(requestCode) {
+            case 0:
+                if(resultCode == RESULT_OK){
+                    Uri selectedImage = imageReturnedIntent.getData();
+                    imageForDownload.setImageURI(selectedImage);
+                    imageForDownload.setMaxHeight(200);
+                    imageForDownload.setMaxWidth(200);
+                    imageForDownload.setVisibility(View.VISIBLE);
+                }
+
+                break;
+            case 1:
+                if(resultCode == RESULT_OK){
+                    Uri selectedImage = imageReturnedIntent.getData();
+                    imageForDownload.setImageURI(selectedImage);
+                    imageForDownload.setMaxHeight(200);
+                    imageForDownload.setMaxWidth(200);
+                    imageForDownload.setVisibility(View.VISIBLE);
                 }
                 break;
-
         }
     }
 
