@@ -15,9 +15,6 @@
             android:name=".fixProfileData"
             android:exported="false" />
         <activity
-            android:name=".testik"
-            android:exported="false" />
-        <activity
             android:name=".UsersProfile"
             android:exported="true"
             android:label="Профиль пользователя"
@@ -26,7 +23,7 @@
         <activity
             android:name=".SearchingResults"
             android:exported="true"
-            android:label="Результаты загрузки"
+            android:label="Результаты поиска"
             android:parentActivityName=".LastSolutions"
             android:screenOrientation="portrait" />
         <activity
