@@ -55,6 +55,7 @@ public class Download extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTheme4;
     AutoCompleteTextView autoCompleteTheme5;
 
+
     TextView descriptionTheme2;
     TextView descriptionTheme3;
     TextView descriptionTheme4;
